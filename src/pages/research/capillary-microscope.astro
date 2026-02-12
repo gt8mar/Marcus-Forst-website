@@ -18,6 +18,11 @@ import Layout from '../../components/layout.astro';
     </div>
 
     <section class="detail">
+      <figure class="figure">
+        <img src="/images/capillary_image.png" alt="Nailfold capillaries imaged at 10x magnification, showing individual capillary loops with a 100 µm scale bar" />
+        <figcaption>Nailfold capillaries imaged with the capillary microscope. Scale bar: 100 µm.</figcaption>
+      </figure>
+
       <h2>Overview</h2>
       <p>
         This project focuses on designing a microscope to image white blood cells flowing
@@ -41,6 +46,17 @@ import Layout from '../../components/layout.astro';
         individuals and those with vascular conditions. Over the course of the project,
         I recruited and tested 82 participants.
       </p>
+
+      <figure class="figure">
+        <img src="/images/capillary_microscope_ray_diagram.jpeg" alt="Ray diagram of the capillary microscope showing camera, tube lens, 10x objective, LED illumination, and the inflatable finger-lock" />
+        <figcaption>Optical layout of the capillary microscope with the inflatable finger-lock.</figcaption>
+      </figure>
+
+      <h2>Data &amp; Analysis</h2>
+      <figure class="figure">
+        <img src="/images/capillary_image_wide.png" alt="Multi-panel figure showing capillary images at increasing magnification with red arrows highlighting individual blood cells" />
+        <figcaption>Capillary images at increasing magnification. Red arrows indicate individual blood cells.</figcaption>
+      </figure>
 
       <h2>Analysis Pipeline</h2>
       <p>
@@ -80,5 +96,21 @@ import Layout from '../../components/layout.astro';
   .detail p {
     line-height: 1.7;
     margin-bottom: 1rem;
+  }
+  .figure {
+    margin: 2rem 0;
+    text-align: center;
+  }
+  .figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--card-radius);
+    box-shadow: 0 2px 8px rgba(14, 30, 37, 0.12);
+  }
+  .figure figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
   }
 </style>

@@ -67,6 +67,10 @@ import ProjectCard from '../../components/project-card.astro';
           open-source ELISA-array platereader for measuring seroprevalence of COVID antibodies
           in blood. Worked with Dr. Shalin Mehta.
         </p>
+        <figure class="figure">
+          <img src="/images/multisero_microscope.png" alt="MultiSero platereader: photos of the assembled microscope and a labeled CAD diagram showing motorized axes, camera, objective, and 96-well plate holder" />
+          <figcaption>The MultiSero/Nautilus platereader. (A, B) Assembled instrument. (C) Labeled CAD model.</figcaption>
+        </figure>
       </div>
 
       <div class="earlier-item">
@@ -146,5 +150,21 @@ import ProjectCard from '../../components/project-card.astro';
   .earlier-item p {
     margin: 0;
     font-size: 0.95rem;
+  }
+  .figure {
+    margin: 1.25rem 0;
+    text-align: center;
+  }
+  .figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--card-radius);
+    box-shadow: 0 2px 8px rgba(14, 30, 37, 0.12);
+  }
+  .figure figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
   }
 </style>
