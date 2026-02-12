@@ -1,0 +1,70 @@
+---
+const {
+  heading = "Marcus Forst",
+  subtitle = "Applied Physicist | Founder, Forst Laboratories LLC",
+  bio = "",
+  ctaText = "",
+  ctaHref = "",
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-heading">{heading}</h1>
+    <p class="hero-subtitle">{subtitle}</p>
+    {bio && <p class="hero-bio">{bio}</p>}
+    {ctaText && ctaHref && (
+      <a href={ctaHref} class="button hero-cta">{ctaText}</a>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 100%);
+    color: var(--neutral-light-000);
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+  }
+  .hero-inner {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  .hero-heading {
+    font-family: var(--font-primary);
+    font-size: 3rem;
+    margin: 0 0 0.5rem;
+    color: var(--neutral-light-000);
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--neutral-light-300);
+    margin: 0 0 1.5rem;
+    font-weight: 400;
+  }
+  .hero-bio {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--neutral-light-200);
+    margin: 0 0 2rem;
+  }
+  .hero-cta {
+    background: var(--teal-400);
+    color: var(--neutral-dark-900) !important;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  .hero-cta:hover,
+  .hero-cta:focus {
+    background: var(--teal-300) !important;
+  }
+  @media (max-width: 600px) {
+    .hero-heading {
+      font-size: 2.2rem;
+    }
+    .hero {
+      padding: 4rem 1.5rem 3rem;
+    }
+  }
+</style>

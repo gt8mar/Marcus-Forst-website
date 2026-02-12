@@ -1,0 +1,31 @@
+---
+import Layout from '../../components/layout.astro';
+---
+
+<Layout
+  title="Message Sent"
+  description="Your message has been received."
+  currentPath="/contact"
+>
+  <div class="page-content success">
+    <h1>Message Sent</h1>
+    <p>Thank you for reaching out. I'll get back to you soon.</p>
+    <a href="/" class="button">Back to Home</a>
+  </div>
+</Layout>
+
+<style>
+  .success {
+    text-align: center;
+    padding: 6rem 1.5rem;
+  }
+  .success h1 {
+    color: var(--heading);
+    margin-bottom: 1rem;
+  }
+  .success p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+</style>

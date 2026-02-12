@@ -1,0 +1,72 @@
+---
+import Layout from '../../components/layout.astro';
+---
+
+<Layout
+  title="IVF Outcome Prediction"
+  description="Machine learning models to predict pregnancy success from preimplantation genetic testing data."
+  currentPath="/research"
+>
+  <div class="page-content">
+    <nav class="breadcrumb">
+      <a href="/research">&larr; All Research</a>
+    </nav>
+
+    <div class="page-header">
+      <h1>IVF Outcome Prediction</h1>
+      <p>Reproductive Medicine Institute</p>
+    </div>
+
+    <section class="detail">
+      <h2>Overview</h2>
+      <p>
+        In vitro fertilization (IVF) outcomes depend on many factors, and clinicians
+        currently lack reliable tools to predict which embryo transfers will succeed.
+        This project builds machine learning models to estimate pregnancy success from
+        preimplantation genetic testing (PGT) data.
+      </p>
+
+      <h2>Data</h2>
+      <p>
+        I cleaned and analyzed approximately 8,600 embryo records, linking PGT results
+        with transfer outcomes to build a comprehensive training dataset.
+      </p>
+
+      <h2>Models and Delivery</h2>
+      <p>
+        The project produced predictive models and a Flask web application that allows
+        clinicians to input embryo data and receive estimated transfer success
+        probabilities. The tool is designed to support — not replace — clinical
+        decision-making.
+      </p>
+
+      <h2>Mentorship</h2>
+      <p>
+        As part of this project, I mentored a student through a Python crash course,
+        designing a coding curriculum around the research so he could write the initial
+        analysis before we scaled to larger models.
+      </p>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .breadcrumb {
+    margin-bottom: 1.5rem;
+  }
+  .breadcrumb a {
+    font-size: 0.9rem;
+  }
+  .detail h2 {
+    font-size: 1.3rem;
+    color: var(--heading);
+    margin: 2rem 0 0.75rem;
+  }
+  .detail h2:first-child {
+    margin-top: 0;
+  }
+  .detail p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+</style>

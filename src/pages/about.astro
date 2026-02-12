@@ -1,0 +1,147 @@
+---
+import Layout from '../components/layout.astro';
+---
+
+<Layout
+  title="About"
+  description="Marcus Forst — applied physicist, instrument builder, and founder of Forst Laboratories LLC."
+  currentPath="/about"
+>
+  <div class="page-content">
+    <div class="page-header">
+      <h1>About</h1>
+    </div>
+
+    <section class="bio">
+      <p>
+        I'm Marcus Forst, an applied physicist and the founder of
+        <strong>Forst Laboratories LLC</strong>. I build instruments and write
+        software to solve problems in biomedical research.
+      </p>
+      <p>
+        I earned my <strong>PhD in Applied Physics from Stanford University</strong>
+        in 2025, where I worked in Dr. Stephen Quake's lab designing a microscope
+        to image blood flowing through human nailfold capillaries. I invented an
+        inflatable "finger-lock" to stabilize videos and modulate blood flow,
+        recruited and tested 82 participants under my own IRB protocol, and wrote
+        the image-analysis pipeline in Python to extract flow velocities from video.
+      </p>
+      <p>
+        Before Stanford, I studied physics at <strong>Temple University</strong>,
+        where I graduated with a 3.99 GPA and was named a Diamond Scholar. At Temple
+        I grew and characterized monolayer MoS<sub>2</sub> films using CVD and
+        STM/STS, built a pulsed laser interferometer to image sound waves, and
+        served as president of the Physics Club.
+      </p>
+      <p>
+        Today at Forst Laboratories I lead projects spanning capillary microscopy,
+        lung biology, uterine physiology, and reproductive medicine — combining
+        hardware design, data analysis, and machine learning to accelerate
+        translational research.
+      </p>
+    </section>
+
+    <section class="education">
+      <h2>Education</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Degree</th>
+            <th>Institution</th>
+            <th>GPA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025</td>
+            <td>PhD Applied Physics</td>
+            <td>Stanford University</td>
+            <td>3.56 / 4.0</td>
+          </tr>
+          <tr>
+            <td>2019</td>
+            <td>B.S. Physics</td>
+            <td>Temple University</td>
+            <td>3.99 / 4.0</td>
+          </tr>
+          <tr>
+            <td>2014</td>
+            <td>H.S. Valedictorian</td>
+            <td>Avon Grove High School</td>
+            <td>4.0 / 4.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="awards">
+      <h2>Selected Awards</h2>
+      <ul>
+        <li><strong>2025</strong> — Department of Applied Physics Graduation Speaker, Stanford University</li>
+        <li><strong>2020</strong> — 30 Under 30, Temple University</li>
+        <li><strong>2019</strong> — Knight-Hennessy Scholar, Stanford University</li>
+        <li><strong>2019</strong> — NSF Graduate Research Fellowship (NSF-GRFP)</li>
+        <li><strong>2018</strong> — Goldwater Scholar</li>
+        <li><strong>2018</strong> — Phi Beta Kappa</li>
+        <li><strong>2017</strong> — Diamond Scholar, Temple University</li>
+      </ul>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .bio p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+  .education,
+  .awards {
+    margin-top: 2.5rem;
+  }
+  .education h2,
+  .awards h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--heading);
+    border-bottom: 2px solid var(--lightBorder);
+    padding-bottom: 0.5rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--lightBorder);
+  }
+  th {
+    font-weight: 700;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .awards ul {
+    list-style: none;
+    padding: 0;
+  }
+  .awards li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--lightBorder);
+    font-size: 0.95rem;
+  }
+  .awards li:last-child {
+    border-bottom: none;
+  }
+  @media (max-width: 600px) {
+    table {
+      font-size: 0.85rem;
+    }
+    th, td {
+      padding: 0.5rem 0.5rem;
+    }
+  }
+</style>

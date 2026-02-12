@@ -1,0 +1,72 @@
+---
+import Layout from '../../components/layout.astro';
+---
+
+<Layout
+  title="Uterine Atony"
+  description="Combining proteomics and RNA-seq to identify disrupted pathways in atonic uterine muscle."
+  currentPath="/research"
+>
+  <div class="page-content">
+    <nav class="breadcrumb">
+      <a href="/research">&larr; All Research</a>
+    </nav>
+
+    <div class="page-header">
+      <h1>Uterine Atony</h1>
+      <p>Stanford University &amp; MD Jessica Ansari</p>
+    </div>
+
+    <section class="detail">
+      <h2>Overview</h2>
+      <p>
+        Uterine atony — the failure of the uterus to contract after delivery — is a leading
+        cause of postpartum hemorrhage worldwide. Despite its clinical significance, the
+        molecular mechanisms underlying atony remain poorly understood.
+      </p>
+
+      <h2>Approach</h2>
+      <p>
+        Using Python, I analyzed proteomic and RNA-seq data from 21 patients with healthy
+        and atonic uterine muscle. The analysis identifies proteins and genes that differ
+        between the two groups, maps them onto biological pathways to find disrupted
+        processes, and groups patients by molecular severity.
+      </p>
+
+      <h2>Methods</h2>
+      <p>
+        The pipeline combines differential expression analysis with pathway enrichment to
+        move beyond individual gene hits and identify systems-level dysfunction. Patient
+        clustering reveals molecular subtypes that may respond differently to treatment.
+      </p>
+
+      <h2>Significance</h2>
+      <p>
+        By identifying the specific molecular pathways disrupted in atonic uterine muscle,
+        this work aims to reveal new targets for preventing or treating postpartum
+        hemorrhage.
+      </p>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .breadcrumb {
+    margin-bottom: 1.5rem;
+  }
+  .breadcrumb a {
+    font-size: 0.9rem;
+  }
+  .detail h2 {
+    font-size: 1.3rem;
+    color: var(--heading);
+    margin: 2rem 0 0.75rem;
+  }
+  .detail h2:first-child {
+    margin-top: 0;
+  }
+  .detail p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+</style>

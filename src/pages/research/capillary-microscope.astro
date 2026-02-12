@@ -1,0 +1,84 @@
+---
+import Layout from '../../components/layout.astro';
+---
+
+<Layout
+  title="Capillary Microscope"
+  description="Designing a microscope to image white blood cells in nailfold capillaries."
+  currentPath="/research"
+>
+  <div class="page-content">
+    <nav class="breadcrumb">
+      <a href="/research">&larr; All Research</a>
+    </nav>
+
+    <div class="page-header">
+      <h1>Capillary Microscope</h1>
+      <p>Eleftheria Foundation &amp; Dr. Stephen Quake</p>
+    </div>
+
+    <section class="detail">
+      <h2>Overview</h2>
+      <p>
+        This project focuses on designing a microscope to image white blood cells flowing
+        through nailfold capillaries — the tiny blood vessels visible at the base of the
+        fingernail. By watching individual blood cells move through these capillaries, we
+        can study microvascular health non-invasively.
+      </p>
+
+      <h2>The Finger-Lock</h2>
+      <p>
+        A key challenge in capillary microscopy is motion: even small finger movements blur
+        the video. I invented an inflatable "finger-lock" that stabilizes the finger under
+        the microscope while also applying controlled pressure to modulate blood flow
+        velocities. This device enables both clearer imaging and the study of how capillary
+        flow responds to pressure changes.
+      </p>
+
+      <h2>Data Collection</h2>
+      <p>
+        I wrote and received approval for an IRB protocol to study blood flow in healthy
+        individuals and those with vascular conditions. Over the course of the project,
+        I recruited and tested 82 participants.
+      </p>
+
+      <h2>Analysis Pipeline</h2>
+      <p>
+        I developed an open-source Python and ImageJ pipeline
+        (<a href="https://github.com/gt8mar/capillary-flow" target="_blank" rel="noopener noreferrer">capillary-flow</a>)
+        to stabilize video, segment capillaries, and extract blood flow velocities from
+        each frame. The pipeline handles the full workflow from raw video to quantitative
+        flow measurements.
+      </p>
+
+      <h2>Publication</h2>
+      <p>
+        <strong>Forst ML</strong>, Rincon G, Levy JH, Cornfield DN, and Quake SR.
+        An inflatable "finger-lock" for stabilizing nailfold capillary videos and
+        modulating blood flow velocities.
+        <em>Review of Scientific Instruments</em>. 2025; 96(8):083702.
+      </p>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .breadcrumb {
+    margin-bottom: 1.5rem;
+  }
+  .breadcrumb a {
+    font-size: 0.9rem;
+  }
+  .detail h2 {
+    font-size: 1.3rem;
+    color: var(--heading);
+    margin: 2rem 0 0.75rem;
+  }
+  .detail h2:first-child {
+    margin-top: 0;
+  }
+  .detail p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+</style>

@@ -1,0 +1,150 @@
+---
+import Layout from '../components/layout.astro';
+---
+
+<Layout
+  title="Publications"
+  description="Journal articles, invited talks, and conference presentations by Marcus Forst."
+  currentPath="/publications"
+>
+  <div class="page-content">
+    <div class="page-header">
+      <h1>Publications</h1>
+    </div>
+
+    <section class="pub-section">
+      <h2>Journal Articles</h2>
+      <ol class="pub-list" reversed>
+        <li>
+          <strong>Forst ML</strong>, Rincon G, Levy JH, Cornfield DN, and Quake SR.
+          An inflatable "finger-lock" for stabilizing nailfold capillary videos and
+          modulating blood flow velocities.
+          <em>Review of Scientific Instruments</em>. 2025; 96(8):083702.
+        </li>
+        <li>
+          Byrum JR, Waltari E, Janson O, Guo S-M, Folkesson J, Chhun BB, Vinden J,
+          Ivanov IE, <strong>Forst ML</strong>, Li H, et al.
+          MultiSero: An Open-Source Multiplex-ELISA Platform for Measuring Antibody
+          Responses to Infection.
+          <em>Pathogens</em>. 2023; 12(5):671.
+        </li>
+        <li>
+          Chopra HD, Ravishankar A, Pacifico MS, <strong>Forst ML</strong>.
+          Non-Joulian Magnetostriction and Non-Joulian Magnetism.
+          <em>Phys. Status Solidi B</em>. 2018; 1800214.
+        </li>
+        <li>
+          Saurav TM, <strong>Forst ML</strong>, Boligitz JA, and Chopra HD.
+          Contracting non-Joulian magnets.
+          <em>Phys. Rev. B</em>. 2017; 95, 174425.
+        </li>
+      </ol>
+    </section>
+
+    <section class="pub-section">
+      <h2>Invited Talks</h2>
+      <ul class="talk-list">
+        <li>
+          <strong>Forst ML</strong>. Alexa, make me a medical device.
+          Presented at the T.H.I.N.K. Philips AI Healthcare Conference;
+          2025 January; Stanford, CA.
+        </li>
+        <li>
+          <strong>Forst ML</strong>. Giving the finger to blood-pressure tests.
+          Presented at Mississippi University for Women;
+          2024 September; Columbus, MS.
+        </li>
+      </ul>
+    </section>
+
+    <section class="pub-section">
+      <h2>Conference Presentations</h2>
+      <ul class="talk-list">
+        <li>
+          <strong>Forst ML</strong>, Rincon G, Levy JH, Cornfield DN, and Quake SR.
+          Effects of Age on Capillaries.
+          2024 Optics and Photonics in Medicine and Biology Gordon Conference;
+          July 2024; Lewiston, ME.
+        </li>
+        <li>
+          <strong>Forst ML</strong>, Rincon G, Cornfield DN, Quake SR.
+          Effects of age on human capillaries.
+          2024 BPS Conference; February 2024; Philadelphia, PA.
+        </li>
+        <li>
+          <strong>Forst ML</strong>, Rincon G, Cornfield DN, Quake SR.
+          Effects of pressure on capillary blood flow.
+          Stanford University BioX Discovery Expo; October 2023; Stanford, CA.
+        </li>
+        <li>
+          <strong>Forst ML</strong>, Quake SR.
+          Giving the finger to blood-pressure tests.
+          Stanford Cardiovascular Institute Roundtable; August 2022; CA.
+        </li>
+        <li>
+          <strong>Forst ML</strong>, Quake SR.
+          Pressure-controlled Capillaroscopy.
+          2022 Optics and Photonics in Medicine and Biology Gordon Conference;
+          July 2022; ME.
+        </li>
+        <li>
+          <strong>Forst ML</strong>.
+          LLS Mission Moment Keynote Speech.
+          Leukemia and Lymphoma Society 2019 Students of the Year Grand Finale;
+          March 2019; PA.
+        </li>
+        <li>
+          <strong>Forst ML</strong>, Iavarone M, et al.
+          Electronic Properties of Defects in Few-Layer Molybdenum Disulfide Films.
+          APS March Meeting 2018; Los Angeles, CA.
+        </li>
+        <li>
+          <strong>Forst ML</strong>, Trainer D, and Iavarone M.
+          Growing Large Area, Uniform Monolayer Molybdenum Disulfide.
+          Temple University Undergraduate Research Forum; April 2018; Philadelphia, PA.
+        </li>
+        <li>
+          <strong>Forst ML</strong>, Trainer D, and Iavarone M.
+          Investigating Few Layers Thick Molybdenum Disulfide.
+          Temple University Diamond Scholar Poster Day; July 2017; Philadelphia, PA.
+        </li>
+        <li>
+          <strong>Forst ML</strong>, Alpert R.
+          A Look at Temple Basketball from the Inside Out.
+          Temple University Undergraduate Research Forum; April 2016; Philadelphia, PA.
+        </li>
+      </ul>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .pub-section {
+    margin-bottom: 3rem;
+  }
+  .pub-section h2 {
+    font-size: 1.5rem;
+    color: var(--heading);
+    border-bottom: 2px solid var(--lightBorder);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .pub-list,
+  .talk-list {
+    padding-left: 1.5rem;
+  }
+  .pub-list li,
+  .talk-list li {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  .talk-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .talk-list li {
+    padding-left: 1rem;
+    border-left: 3px solid var(--lightBorder);
+  }
+</style>

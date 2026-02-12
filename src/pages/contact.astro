@@ -1,0 +1,122 @@
+---
+import Layout from '../components/layout.astro';
+---
+
+<Layout
+  title="Contact"
+  description="Get in touch with Marcus Forst."
+  currentPath="/contact"
+>
+  <div class="page-content">
+    <div class="page-header">
+      <h1>Contact</h1>
+      <p>Interested in collaborating? Send me a message.</p>
+    </div>
+
+    <div class="contact-grid">
+      <form
+        class="contact-form"
+        method="POST"
+        name="contact"
+        action="/contact/success"
+        netlify
+      >
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit" class="button">Send Message</button>
+      </form>
+
+      <aside class="contact-info">
+        <h2>Other Ways to Reach Me</h2>
+        <ul>
+          <li>
+            <strong>Email</strong><br />
+            <a href="mailto:marcus.l.forst@gmail.com">marcus.l.forst@gmail.com</a>
+          </li>
+          <li>
+            <strong>GitHub</strong><br />
+            <a href="https://github.com/gt8mar" target="_blank" rel="noopener noreferrer">github.com/gt8mar</a>
+          </li>
+          <li>
+            <strong>LinkedIn</strong><br />
+            <a href="https://www.linkedin.com/in/marcus-forst" target="_blank" rel="noopener noreferrer">linkedin.com/in/marcus-forst</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 700px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-form label {
+    color: var(--heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-top: 1rem;
+    text-transform: uppercase;
+  }
+  .contact-form label:first-of-type {
+    margin-top: 0;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--lightBorder);
+    border-radius: 4px;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: 2px solid var(--highlight);
+    border-color: var(--highlight);
+  }
+  .contact-form textarea {
+    height: 150px;
+    resize: vertical;
+  }
+  .contact-form .button {
+    margin-top: 1.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .contact-info h2 {
+    font-size: 1.3rem;
+    margin: 0 0 1rem;
+    color: var(--heading);
+  }
+  .contact-info ul {
+    list-style: none;
+    padding: 0;
+  }
+  .contact-info li {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+</style>

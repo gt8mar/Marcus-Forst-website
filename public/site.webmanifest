@@ -1,6 +1,6 @@
 {
-    "name": "Netlify Tour",
-    "short_name": "Netlify Tour",
+    "name": "Marcus Forst",
+    "short_name": "Marcus Forst",
     "icons": [
       { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
       { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }

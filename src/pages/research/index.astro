@@ -1,0 +1,150 @@
+---
+import Layout from '../../components/layout.astro';
+import ProjectCard from '../../components/project-card.astro';
+---
+
+<Layout
+  title="Research"
+  description="Overview of research projects at Forst Laboratories LLC and earlier work at Stanford, CZ Biohub, and Temple University."
+  currentPath="/research"
+>
+  <div class="page-content">
+    <div class="page-header">
+      <h1>Research</h1>
+      <p>Instrument design, computational biology, and machine learning for biomedical problems.</p>
+    </div>
+
+    <section class="section">
+      <h2>Forst Laboratories LLC <span class="date">2025 – Present</span></h2>
+      <div class="projects-grid">
+        <ProjectCard
+          title="Capillary Microscope"
+          description="Designing a microscope to image white blood cells in nailfold capillaries. Continuation of PhD work with the Eleftheria Foundation and Dr. Stephen Quake."
+          collaborators="Eleftheria Foundation, Dr. Stephen Quake"
+          href="/research/capillary-microscope"
+        />
+        <ProjectCard
+          title="Lung Mural Cells"
+          description="Writing Python tools to study how pericytes and smooth muscle cells change in the developing and hypoxic lung."
+          collaborators="Stanford University, MD David Cornfield"
+          href="/research/lung-mural-cells"
+        />
+        <ProjectCard
+          title="Uterine Atony"
+          description="Using Python to find proteins and genes that differ between healthy and atonic uterine muscle. Combined proteomics and RNA-seq from 21 patients."
+          collaborators="Stanford University, MD Jessica Ansari"
+          href="/research/uterine-atony"
+        />
+        <ProjectCard
+          title="IVF Outcome Prediction"
+          description="Built machine learning models to predict pregnancy success from preimplantation genetic testing data across ~8,600 embryo records."
+          collaborators="Reproductive Medicine Institute"
+          href="/research/ivf-prediction"
+        />
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>PhD Research — Quake Lab, Stanford <span class="date">2019 – 2025</span></h2>
+      <p>
+        Designed and built a microscope to videotape blood flowing through human nailfold
+        capillaries. Invented an inflatable "finger-lock" to increase pressure on the finger
+        and modulate blood flow velocities. Wrote an IRB to study blood flow in healthy and
+        affected individuals, recruiting and testing 82 participants. Developed an ImageJ and
+        Python repository
+        (<a href="https://github.com/gt8mar/capillary-flow" target="_blank" rel="noopener noreferrer">capillary-flow</a>)
+        to stabilize videos and extract blood flow rates.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Earlier Research</h2>
+
+      <div class="earlier-item">
+        <h3>Nautilus Platereader — Chan Zuckerberg Biohub <span class="date">2020</span></h3>
+        <p>
+          Collaborated with Hongquan Li and Ivan Ivanov to design and build a high-throughput
+          open-source ELISA-array platereader for measuring seroprevalence of COVID antibodies
+          in blood. Worked with Dr. Shalin Mehta.
+        </p>
+      </div>
+
+      <div class="earlier-item">
+        <h3>MoS<sub>2</sub> Thin Films — Temple University <span class="date">2016 – 2019</span></h3>
+        <p>
+          Diamond Scholar in Dr. Maria Iavarone's lab. Grew monolayer and bilayer MoS<sub>2</sub>
+          films using chemical vapor deposition (CVD) and characterized them with AFM and
+          STM/STS to study their electronic properties.
+        </p>
+      </div>
+
+      <div class="earlier-item">
+        <h3>Pulsed Laser Interferometer — Temple University <span class="date">2018 – 2019</span></h3>
+        <p>
+          Self-study with Dr. Darius Torchinsky. Built a pulsed laser interferometer to make
+          movies of sound waves rippling through a solid.
+        </p>
+      </div>
+
+      <div class="earlier-item">
+        <h3>Granular Packing — FAU Erlangen <span class="date">2018</span></h3>
+        <p>
+          Summer internship with Dr. Thorsten Pöschel. Analyzed X-ray tomographies of marbles
+          in a cylinder to study density distributions using C++ and MATLAB.
+        </p>
+      </div>
+
+      <div class="earlier-item">
+        <h3>Non-Joulian Magnetostriction — Temple University <span class="date">2015 – 2017</span></h3>
+        <p>
+          Research assistant in Dr. Harsh Chopra's lab. Head operator and service technician of
+          the Vibrating Sample Magnetometer (VSM). Designed Wheatstone bridge circuits to measure
+          magnetostriction symmetry.
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .section {
+    margin-bottom: 3rem;
+  }
+  .section h2 {
+    font-size: 1.5rem;
+    color: var(--heading);
+    border-bottom: 2px solid var(--lightBorder);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .date {
+    font-family: var(--font-secondary);
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+  .projects-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 600px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .section p {
+    line-height: 1.7;
+  }
+  .earlier-item {
+    margin-bottom: 1.5rem;
+  }
+  .earlier-item h3 {
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+  }
+  .earlier-item p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+</style>
