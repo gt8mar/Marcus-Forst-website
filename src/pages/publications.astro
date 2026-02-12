@@ -10,6 +10,11 @@ import Layout from '../components/layout.astro';
   <div class="page-content">
     <div class="page-header">
       <h1>Publications</h1>
+      <p class="profile-links">
+        <a href="https://scholar.google.com/citations?user=J-QNTOIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        &middot;
+        <a href="https://orcid.org/0000-0002-2087-1255" target="_blank" rel="noopener noreferrer">ORCID</a>
+      </p>
     </div>
 
     <section class="pub-section">
@@ -20,6 +25,7 @@ import Layout from '../components/layout.astro';
           An inflatable "finger-lock" for stabilizing nailfold capillary videos and
           modulating blood flow velocities.
           <em>Review of Scientific Instruments</em>. 2025; 96(8):083702.
+          <a href="https://doi.org/10.1063/5.0267558" target="_blank" rel="noopener noreferrer" class="doi-link">DOI</a>
         </li>
         <li>
           Byrum JR, Waltari E, Janson O, Guo S-M, Folkesson J, Chhun BB, Vinden J,
@@ -27,16 +33,19 @@ import Layout from '../components/layout.astro';
           MultiSero: An Open-Source Multiplex-ELISA Platform for Measuring Antibody
           Responses to Infection.
           <em>Pathogens</em>. 2023; 12(5):671.
+          <a href="https://doi.org/10.3390/pathogens12050671" target="_blank" rel="noopener noreferrer" class="doi-link">DOI</a>
         </li>
         <li>
           Chopra HD, Ravishankar A, Pacifico MS, <strong>Forst ML</strong>.
           Non-Joulian Magnetostriction and Non-Joulian Magnetism.
           <em>Phys. Status Solidi B</em>. 2018; 1800214.
+          <a href="https://doi.org/10.1002/pssb.201800214" target="_blank" rel="noopener noreferrer" class="doi-link">DOI</a>
         </li>
         <li>
           Saurav TM, <strong>Forst ML</strong>, Boligitz JA, and Chopra HD.
           Contracting non-Joulian magnets.
           <em>Phys. Rev. B</em>. 2017; 95, 174425.
+          <a href="https://doi.org/10.1103/PhysRevB.95.174425" target="_blank" rel="noopener noreferrer" class="doi-link">DOI</a>
         </li>
       </ol>
     </section>
@@ -146,5 +155,25 @@ import Layout from '../components/layout.astro';
   .talk-list li {
     padding-left: 1rem;
     border-left: 3px solid var(--lightBorder);
+  }
+  .profile-links {
+    margin-top: 0.5rem !important;
+    font-size: 0.95rem !important;
+  }
+  .doi-link {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--light);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    margin-left: 0.25rem;
+    text-decoration: none !important;
+  }
+  .doi-link:hover {
+    background: var(--highlight);
+    color: var(--neutral-dark-900) !important;
   }
 </style>
