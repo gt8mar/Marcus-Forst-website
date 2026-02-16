@@ -28,7 +28,7 @@ import Layout from '../../components/layout.astro';
 
       <h2>Data</h2>
       <p>
-        I cleaned and analyzed approximately 8,600 embryo records, linking PGT results
+        We cleaned and analyzed approximately 8,600 embryo records, linking PGT results
         with transfer outcomes to build a comprehensive training dataset.
       </p>
 
@@ -47,19 +47,30 @@ import Layout from '../../components/layout.astro';
         analysis before we scaled to larger models.
       </p>
 
-      <h2>Theo's Project</h2>
+      <h2>Interactive Tools</h2>
       <p>
-        Use Theo's live IVF prediction tool here:
-        <a href="https://ivf-prediction.onrender.com" target="_blank" rel="noopener noreferrer">
-          ivf-prediction.onrender.com
-        </a>.
+        Try the embedded IVF calculators below.
       </p>
-      <p>
-        Implementation and deployment details are documented in the repository:
-        <a href="https://github.com/theodoretikhomirov/eggproject" target="_blank" rel="noopener noreferrer">
-          github.com/theodoretikhomirov/eggproject
-        </a>.
-      </p>
+
+      <h3>Single Embryo Predictor</h3>
+      <link rel="stylesheet" href="https://ivf-prediction.onrender.com/static/embed/squarespace-widget.css" />
+      <div id="ivf-tool-root" class="widget-root"></div>
+      <script
+        is:inline
+        src="https://ivf-prediction.onrender.com/static/embed/squarespace-widget.js"
+        data-target="ivf-tool-root"
+        data-api-base="https://ivf-prediction.onrender.com"
+      ></script>
+
+      <h3>Cumulative Calculator</h3>
+      <link rel="stylesheet" href="https://ivf-prediction.onrender.com/static/embed/squarespace-cumulative-widget.css" />
+      <div id="ivf-cumulative-root" class="widget-root"></div>
+      <script
+        is:inline
+        src="https://ivf-prediction.onrender.com/static/embed/squarespace-cumulative-widget.js"
+        data-target="ivf-cumulative-root"
+        data-api-base="https://ivf-prediction.onrender.com"
+      ></script>
     </section>
   </div>
 </Layout>
@@ -82,5 +93,13 @@ import Layout from '../../components/layout.astro';
   .detail p {
     line-height: 1.7;
     margin-bottom: 1rem;
+  }
+  .detail h3 {
+    font-size: 1.1rem;
+    color: var(--heading);
+    margin: 1.5rem 0 0.75rem;
+  }
+  .widget-root {
+    margin-bottom: 1.25rem;
   }
 </style>
