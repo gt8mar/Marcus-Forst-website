@@ -1,0 +1,80 @@
+---
+import Layout from '../components/layout.astro';
+---
+
+<Layout
+  title="Where In The World Is Marcus"
+  description="A very serious geolocation dashboard."
+  currentPath="/where-in-the-world-is-marcus"
+>
+  <main class="retro-page">
+    <h1>Where in the world is Marcus?</h1>
+    <p class="location" aria-label="Current location">Altus, Oklahoma</p>
+    <p class="back-home">
+      <a href="/">Take me back home</a>
+    </p>
+  </main>
+</Layout>
+
+<style>
+  .retro-page {
+    width: 100%;
+    min-height: calc(100vh - 3.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem 5rem;
+    background:
+      radial-gradient(circle at 20% 20%, #ffef66 0%, #ffef66 10%, transparent 11%),
+      radial-gradient(circle at 80% 25%, #7dffea 0%, #7dffea 9%, transparent 10%),
+      radial-gradient(circle at 70% 80%, #ff98f0 0%, #ff98f0 8%, transparent 9%),
+      #01008b;
+    color: #ffffff;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+  }
+
+  .retro-page h1 {
+    margin: 0;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    text-shadow: 2px 2px 0 #ff00ff;
+  }
+
+  .location {
+    margin: 0;
+    font-size: clamp(2rem, 8vw, 4.5rem);
+    font-weight: 700;
+    color: #00ffea;
+    text-shadow:
+      0 0 10px #00ffea,
+      3px 3px 0 #ff00ff;
+    animation: blink 1s steps(2, start) infinite;
+  }
+
+  .back-home {
+    margin-top: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .back-home a,
+  .back-home a:visited {
+    color: #ffff00 !important;
+    font-size: 1.1rem;
+    text-decoration: underline !important;
+    text-decoration-color: currentColor !important;
+    font-weight: 700;
+  }
+
+  .back-home a:hover,
+  .back-home a:focus {
+    color: #ff98f0 !important;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0.15;
+    }
+  }
+</style>
