@@ -17,17 +17,9 @@ import Layout from '../components/layout.astro';
 </Layout>
 
 <style>
-  :global(body) {
-    padding-top: 0;
-  }
-
-  :global(.site-nav) {
-    display: none;
-  }
-
   .retro-page {
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 3.5rem);
     display: flex;
     flex-direction: column;
     align-items: center;
