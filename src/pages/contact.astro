@@ -17,10 +17,13 @@ import Layout from '../components/layout.astro';
       <form
         class="contact-form"
         method="POST"
-        name="contact"
-        action="/contact/success"
-        netlify
+        action="https://formsubmit.co/marcus.l.forst@gmail.com"
       >
+        <input type="hidden" name="_subject" value="New message from site contact form" />
+        <input type="hidden" name="_next" value="" />
+        <input type="text" name="_honey" class="hidden-field" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="_captcha" value="false" />
+
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required />
 
@@ -114,6 +117,9 @@ import Layout from '../components/layout.astro';
     font-size: 1rem;
     text-align: center;
   }
+  .hidden-field {
+    display: none;
+  }
   .contact-info h2 {
     font-size: 1.3rem;
     margin: 0 0 1rem;
@@ -128,3 +134,11 @@ import Layout from '../components/layout.astro';
     line-height: 1.6;
   }
 </style>
+
+<script>
+  const form = document.querySelector('.contact-form');
+  const nextInput = form?.querySelector('input[name="_next"]');
+  if (nextInput) {
+    nextInput.value = `${window.location.origin}/contact/success`;
+  }
+</script>
