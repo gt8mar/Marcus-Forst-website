@@ -28,6 +28,9 @@ import Layout from '../components/layout.astro';
           <span class="shop-sign">Munson &amp; Brothers Pizza</span>
         </div>
       </div>
+      <div class="street-band"></div>
+      <div class="grass-band"></div>
+      <div class="riverwalk-path"></div>
       <div class="pixel-river">
         <div class="boat">
           <span class="smoke smoke-1"></span>
@@ -152,9 +155,9 @@ import Layout from '../components/layout.astro';
   .riverfront-strip {
     position: absolute;
     left: 0;
-    bottom: 38%;
+    bottom: 42%;
     width: 100%;
-    height: 16%;
+    height: 21%;
     display: grid;
     grid-template-columns: 1.05fr 1fr 0.95fr 1.1fr;
     gap: 4px;
@@ -174,13 +177,14 @@ import Layout from '../components/layout.astro';
       ),
       repeating-linear-gradient(
         180deg,
-        #824b4b 0 6px,
-        #703f3f 6px 12px
+        #875049 0 6px,
+        #7a453f 6px 12px
       );
     border: 3px solid #2c1a32;
     box-shadow:
-      inset 0 -8px 0 #e5c898,
-      inset 0 -16px 0 #6f2e41,
+      inset 0 -10px 0 #e5c898,
+      inset 0 -22px 0 #6f2e41,
+      inset 0 7px 0 #c38f6d,
       0 -4px 0 #2c1a32;
   }
 
@@ -189,14 +193,14 @@ import Layout from '../components/layout.astro';
     position: absolute;
     left: 8%;
     right: 8%;
-    top: 18%;
-    height: 30%;
+    top: 24%;
+    height: 36%;
     background:
       linear-gradient(90deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.1)),
       repeating-linear-gradient(
         90deg,
-        #9bc9ec 0 7px,
-        #74a6d1 7px 14px
+        #a7d0ef 0 8px,
+        #7caed6 8px 16px
       );
     border: 3px solid #2c1a32;
   }
@@ -207,7 +211,7 @@ import Layout from '../components/layout.astro';
     left: 20%;
     right: 20%;
     bottom: 0;
-    height: 34%;
+    height: 30%;
     background: #533147;
     border-left: 3px solid #2c1a32;
     border-right: 3px solid #2c1a32;
@@ -217,11 +221,11 @@ import Layout from '../components/layout.astro';
     position: absolute;
     left: 8%;
     right: 8%;
-    top: -12px;
+    top: -14px;
     background: #1a1233;
     border: 3px solid #f7d66f;
     color: #ffefbf;
-    font-size: clamp(0.42rem, 1vw, 0.56rem);
+    font-size: clamp(0.46rem, 1vw, 0.6rem);
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0.02em;
@@ -253,7 +257,7 @@ import Layout from '../components/layout.astro';
   }
 
   .shop-arepas {
-    height: 88%;
+    height: 90%;
     background:
       repeating-linear-gradient(
         90deg,
@@ -293,7 +297,7 @@ import Layout from '../components/layout.astro';
   }
 
   .shop-munson {
-    height: 94%;
+    height: 96%;
     background:
       repeating-linear-gradient(
         90deg,
@@ -317,7 +321,7 @@ import Layout from '../components/layout.astro';
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 38%;
+    height: 30%;
     background:
       repeating-linear-gradient(
         180deg,
@@ -326,6 +330,60 @@ import Layout from '../components/layout.astro';
         var(--river-dark) 16px 24px
       );
     overflow: hidden;
+  }
+
+  .street-band {
+    position: absolute;
+    left: 0;
+    bottom: 38%;
+    width: 100%;
+    height: 4%;
+    z-index: 2;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        #34313a 0 20px,
+        #3f3b47 20px 40px
+      );
+    box-shadow:
+      inset 0 3px 0 #7e6d58,
+      inset 0 -3px 0 #201c29;
+  }
+
+  .grass-band {
+    position: absolute;
+    left: 0;
+    bottom: 34%;
+    width: 100%;
+    height: 4%;
+    z-index: 2;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        #4e8f4a 0 12px,
+        #3c7b3f 12px 24px
+      );
+    box-shadow:
+      inset 0 2px 0 rgba(203, 240, 144, 0.45),
+      inset 0 -2px 0 #2b5c33;
+  }
+
+  .riverwalk-path {
+    position: absolute;
+    left: 0;
+    bottom: 30%;
+    width: 100%;
+    height: 4%;
+    z-index: 2;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        #cab08a 0 16px,
+        #b69973 16px 32px
+      );
+    box-shadow:
+      inset 0 2px 0 rgba(255, 248, 224, 0.45),
+      inset 0 -2px 0 #7d6142;
   }
 
   .pixel-river::before {
@@ -541,8 +599,8 @@ import Layout from '../components/layout.astro';
     .riverfront-strip {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      height: 24%;
-      bottom: 38%;
+      height: 28%;
+      bottom: 42%;
       gap: 3px;
       padding: 0 6px;
     }
@@ -556,6 +614,28 @@ import Layout from '../components/layout.astro';
 
     .shop-sign {
       font-size: clamp(0.38rem, 1.8vw, 0.48rem);
+    }
+
+    .street-band,
+    .grass-band,
+    .riverwalk-path {
+      height: 3.5%;
+    }
+
+    .street-band {
+      bottom: 38.5%;
+    }
+
+    .grass-band {
+      bottom: 35%;
+    }
+
+    .riverwalk-path {
+      bottom: 31.5%;
+    }
+
+    .pixel-river {
+      height: 31.5%;
     }
   }
 </style>
