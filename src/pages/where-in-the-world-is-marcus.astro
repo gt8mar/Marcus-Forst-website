@@ -144,7 +144,7 @@ import Layout from '../components/layout.astro';
     --moon-x: 14%;
     --moon-y: 68%;
     width: min(92vw, 760px);
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 10.5;
     border: 5px solid #0d0e2e;
     box-shadow:
       0 0 0 5px #f8d65a,
@@ -230,7 +230,7 @@ import Layout from '../components/layout.astro';
     left: 0;
     bottom: 42%;
     width: 100%;
-    height: 21%;
+    height: 27%;
     display: grid;
     grid-template-columns: 1.05fr 1fr 0.95fr 1.1fr;
     gap: 4px;
@@ -264,16 +264,15 @@ import Layout from '../components/layout.astro';
   .shop::before {
     content: '';
     position: absolute;
-    left: 8%;
-    right: 8%;
-    top: 24%;
-    height: 36%;
+    left: 6%;
+    right: 6%;
+    top: 56%;
+    height: 14%;
     background:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.1)),
       repeating-linear-gradient(
         90deg,
-        #a7d0ef 0 8px,
-        #7caed6 8px 16px
+        #f2d5a4 0 10px,
+        #c88654 10px 20px
       );
     border: 3px solid #2c1a32;
   }
@@ -312,21 +311,24 @@ import Layout from '../components/layout.astro';
 
   .window-grid {
     position: absolute;
-    left: 9%;
-    right: 9%;
-    top: 26%;
-    height: 30%;
+    left: 11%;
+    right: 11%;
+    top: 18%;
+    height: 32%;
     border: 2px solid #2c1a32;
     background:
-      repeating-linear-gradient(
+      linear-gradient(
         90deg,
-        #a8d2ef 0 9px,
-        #7fb2da 9px 18px
+        #a9d3ef 0 30%,
+        #2c1a32 30% 33%,
+        #8ab9dc 33% 63%,
+        #2c1a32 63% 66%,
+        #a9d3ef 66% 100%
       ),
-      repeating-linear-gradient(
+      linear-gradient(
         180deg,
-        transparent 0 10px,
-        rgba(30, 33, 57, 0.55) 10px 12px
+        rgba(255, 255, 255, 0.32) 0 18%,
+        transparent 18% 100%
       );
     box-shadow:
       inset 0 2px 0 rgba(255, 255, 255, 0.3),
@@ -977,15 +979,18 @@ import Layout from '../components/layout.astro';
 
   .pixel-scene.is-night .window-grid {
     background:
-      repeating-linear-gradient(
+      linear-gradient(
         90deg,
-        #ffe89f 0 9px,
-        #ffd56a 9px 18px
+        #ffe89f 0 30%,
+        #2c1a32 30% 33%,
+        #ffd56a 33% 63%,
+        #2c1a32 63% 66%,
+        #ffe89f 66% 100%
       ),
-      repeating-linear-gradient(
+      linear-gradient(
         180deg,
-        transparent 0 10px,
-        rgba(71, 46, 13, 0.52) 10px 12px
+        rgba(255, 252, 222, 0.45) 0 18%,
+        transparent 18% 100%
       );
     box-shadow:
       inset 0 2px 0 rgba(255, 252, 222, 0.55),
@@ -1177,7 +1182,7 @@ import Layout from '../components/layout.astro';
     .riverfront-strip {
       grid-template-columns: repeat(4, minmax(0, 1fr));
       grid-template-rows: 1fr;
-      height: 22%;
+      height: 24%;
       bottom: 42%;
       gap: 3px;
       padding: 0 6px;
@@ -1238,14 +1243,14 @@ import Layout from '../components/layout.astro';
     }
 
     .shop::before {
-      top: 26%;
-      height: 34%;
+      top: 60%;
+      height: 13%;
       border-width: 2px;
     }
 
     .window-grid {
-      top: 30%;
-      height: 28%;
+      top: 20%;
+      height: 34%;
       border-width: 2px;
     }
 
