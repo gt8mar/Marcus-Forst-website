@@ -455,11 +455,16 @@ import Layout from '../components/layout.astro';
     position: absolute;
     bottom: 26%;
     left: -22%;
-    width: 21%;
+    width: 23%;
     aspect-ratio: 3 / 2;
     background:
-      linear-gradient(180deg, #fff9e6 0 38%, transparent 38% 100%),
-      linear-gradient(180deg, transparent 0 58%, #b02f40 58% 74%, #51163a 74% 100%);
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 10px,
+        rgba(38, 24, 49, 0.35) 10px 12px
+      ),
+      linear-gradient(180deg, #f5efda 0 22%, #d8c5a0 22% 48%, transparent 48% 100%),
+      linear-gradient(180deg, transparent 0 56%, #8e4f3b 56% 78%, #3d243f 78% 100%);
     box-shadow: 0 0 0 4px #2a123d;
     animation: boat-sail 10s linear infinite;
     z-index: 2;
@@ -468,26 +473,43 @@ import Layout from '../components/layout.astro';
   .boat::before {
     content: '';
     position: absolute;
-    top: -26%;
-    left: 18%;
-    width: 18%;
-    height: 22%;
-    background: #fff4b2;
+    top: -24%;
+    left: 14%;
+    width: 22%;
+    height: 25%;
+    background:
+      linear-gradient(180deg, #ffdca4 0 26%, #9f5a3c 26% 100%);
     box-shadow:
       0 0 0 3px #2a123d,
-      130% 22% 0 0 #fff4b2,
-      130% 22% 0 3px #2a123d;
+      128% 17% 0 0 #ffdca4,
+      128% 17% 0 3px #2a123d;
   }
 
   .boat::after {
     content: '';
     position: absolute;
-    right: -7%;
-    bottom: 12%;
-    width: 9%;
-    height: 46%;
+    right: -8%;
+    bottom: 10%;
+    width: 12%;
+    height: 52%;
     background:
-      repeating-linear-gradient(180deg, #ffe7a1 0 6px, #f39c58 6px 12px);
+      repeating-linear-gradient(180deg, #f4cf7d 0 5px, #cd7a3f 5px 10px);
+    border: 3px solid #2a123d;
+  }
+
+  .boat .wheel::before {
+    content: '';
+    position: absolute;
+    left: -155%;
+    bottom: 146%;
+    width: 390%;
+    height: 42%;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        #fff0ca 0 10px,
+        #d9b681 10px 20px
+      );
     border: 3px solid #2a123d;
   }
 
@@ -557,7 +579,7 @@ import Layout from '../components/layout.astro';
     left: 0;
     bottom: 42%;
     width: 100%;
-    height: 24%;
+    height: 19%;
     z-index: 2;
     pointer-events: none;
   }
@@ -627,7 +649,7 @@ import Layout from '../components/layout.astro';
 
   .tree-2 {
     left: 27%;
-    height: 100%;
+    height: 90%;
   }
 
   .tree-3 {
@@ -637,7 +659,7 @@ import Layout from '../components/layout.astro';
 
   .tree-4 {
     left: 72%;
-    height: 108%;
+    height: 94%;
   }
 
   .tree-5 {
@@ -782,7 +804,7 @@ import Layout from '../components/layout.astro';
     }
 
     .tree-line {
-      height: 19%;
+      height: 16%;
       bottom: 42%;
     }
 
