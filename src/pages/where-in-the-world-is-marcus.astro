@@ -564,10 +564,10 @@ import Layout from '../components/layout.astro';
   .pixel-plane::after {
     content: '';
     position: absolute;
-    right: -10%;
-    top: 8%;
-    width: 14%;
-    height: 58%;
+    left: -12%;
+    top: 4%;
+    width: 10%;
+    height: 64%;
     background:
       linear-gradient(180deg, #f7fbff 0 52%, #122c58 52% 100%);
     border: 3px solid #1d2f47;
@@ -575,19 +575,20 @@ import Layout from '../components/layout.astro';
 
   .plane-wing {
     position: absolute;
-    left: 12%;
-    top: 32%;
-    width: 76%;
-    height: 24%;
+    left: -1%;
+    top: 24%;
+    width: 38%;
+    height: 52%;
     background:
       linear-gradient(180deg, #f7fbff 0 52%, #122c58 52% 100%);
     border: 3px solid #1d2f47;
     z-index: -1;
+    clip-path: polygon(0 50%, 100% 8%, 100% 92%);
   }
 
   .prop {
     position: absolute;
-    left: -18%;
+    right: -18%;
     top: 18%;
     width: 16%;
     height: 64%;
@@ -595,6 +596,17 @@ import Layout from '../components/layout.astro';
     background:
       repeating-linear-gradient(90deg, #f4f7fd 0 2px, #9eaec5 2px 4px);
     animation: prop-spin 0.12s linear infinite;
+  }
+
+  .prop::before {
+    content: '';
+    position: absolute;
+    left: 24%;
+    top: 35%;
+    width: 52%;
+    height: 30%;
+    background: #16366b;
+    border: 2px solid #0f2346;
   }
 
   .pixel-river::before {
