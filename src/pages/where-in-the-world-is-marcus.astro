@@ -45,6 +45,10 @@ import Layout from '../components/layout.astro';
       </div>
       <div class="riverwalk-path"></div>
       <div class="pixel-cat" aria-hidden="true">
+        <span class="cat-leg leg-1"></span>
+        <span class="cat-leg leg-2"></span>
+        <span class="cat-leg leg-3"></span>
+        <span class="cat-leg leg-4"></span>
         <span class="cat-head">
           <span class="ear ear-left"></span>
           <span class="ear ear-right"></span>
@@ -454,9 +458,9 @@ import Layout from '../components/layout.astro';
   .pixel-cat {
     position: absolute;
     right: -12%;
-    bottom: 31.5%;
-    width: 10%;
-    height: 7%;
+    bottom: 32%;
+    width: 8.2%;
+    height: 5.6%;
     z-index: 6;
     background:
       repeating-linear-gradient(
@@ -499,6 +503,36 @@ import Layout from '../components/layout.astro';
     border: 3px solid #5f2f11;
     border-radius: 6px;
     animation: cat-look 14s linear infinite;
+  }
+
+  .cat-leg {
+    position: absolute;
+    bottom: -26%;
+    width: 12%;
+    height: 30%;
+    background: #d7721f;
+    border: 3px solid #5f2f11;
+    border-radius: 4px;
+  }
+
+  .leg-1 {
+    left: 14%;
+    animation: leg-step-a 0.35s steps(2, end) infinite;
+  }
+
+  .leg-2 {
+    left: 32%;
+    animation: leg-step-b 0.35s steps(2, end) infinite;
+  }
+
+  .leg-3 {
+    left: 56%;
+    animation: leg-step-b 0.35s steps(2, end) infinite;
+  }
+
+  .leg-4 {
+    left: 74%;
+    animation: leg-step-a 0.35s steps(2, end) infinite;
   }
 
   .cat-face {
@@ -595,7 +629,7 @@ import Layout from '../components/layout.astro';
     left: -18%;
     bottom: 8%;
     width: 22%;
-    height: 96%;
+    height: 156%;
     border: 3px solid #1d2f47;
     background:
       linear-gradient(180deg, #f7fbff 0 52%, #122c58 52% 100%);
@@ -1052,6 +1086,18 @@ import Layout from '../components/layout.astro';
     }
   }
 
+  @keyframes leg-step-a {
+    50% {
+      transform: translateX(1px) translateY(-1px);
+    }
+  }
+
+  @keyframes leg-step-b {
+    50% {
+      transform: translateX(-1px);
+    }
+  }
+
   @keyframes sparkle {
     50% {
       opacity: 0.2;
@@ -1093,7 +1139,62 @@ import Layout from '../components/layout.astro';
     }
 
     .shop-sign {
-      font-size: clamp(0.38rem, 1.8vw, 0.48rem);
+      display: none;
+    }
+
+    .shop,
+    .shop-arepas,
+    .shop-harveys,
+    .shop-munson {
+      border-width: 2px;
+      box-shadow:
+        inset 0 -8px 0 #e5c898,
+        inset 0 -16px 0 #6f2e41,
+        inset 0 6px 0 #c38f6d,
+        0 -3px 0 #2c1a32;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.06) 0 2px,
+          transparent 2px 6px
+        ),
+        repeating-linear-gradient(
+          180deg,
+          #8a5247 0 5px,
+          #6f423a 5px 10px
+        );
+    }
+
+    .shop-jb {
+      height: 100%;
+      clip-path: polygon(0 10%, 100% 10%, 100% 100%, 0 100%);
+    }
+
+    .shop-arepas {
+      height: 93%;
+      clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 100%);
+    }
+
+    .shop-harveys {
+      height: 98%;
+      clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .shop-munson {
+      height: 95%;
+      clip-path: polygon(0 6%, 100% 6%, 100% 100%, 0 100%);
+    }
+
+    .shop::before {
+      top: 26%;
+      height: 34%;
+      border-width: 2px;
+    }
+
+    .shop::after {
+      height: 28%;
+      border-left-width: 2px;
+      border-right-width: 2px;
     }
 
     .tree-line {
@@ -1107,9 +1208,11 @@ import Layout from '../components/layout.astro';
     }
 
     .pixel-cat {
-      width: 9%;
-      height: 4.5%;
-      bottom: 33%;
+      display: none;
+    }
+
+    .plane-tail {
+      height: 120%;
     }
 
     .street-band,
