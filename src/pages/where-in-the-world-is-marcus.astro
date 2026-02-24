@@ -454,15 +454,20 @@ import Layout from '../components/layout.astro';
   .pixel-cat {
     position: absolute;
     right: -12%;
-    bottom: 32%;
-    width: 7%;
-    height: 5%;
+    bottom: 31.5%;
+    width: 10%;
+    height: 7%;
     z-index: 6;
     background:
-      linear-gradient(180deg, #ffb450 0 55%, #dc7b26 55% 100%);
+      repeating-linear-gradient(
+        90deg,
+        #ffbb5f 0 10px,
+        #e98c34 10px 20px
+      );
     border: 3px solid #5f2f11;
+    border-radius: 6px 6px 10px 10px;
     box-shadow:
-      inset 0 -2px 0 #c7681f,
+      inset 0 -3px 0 #c7681f,
       inset 0 2px 0 #ffd28e;
     animation: cat-walk-rtl 14s linear infinite;
   }
@@ -470,27 +475,29 @@ import Layout from '../components/layout.astro';
   .pixel-cat::before {
     content: '';
     position: absolute;
-    left: 8%;
-    right: 8%;
+    left: 12%;
+    right: 12%;
     bottom: -28%;
-    height: 30%;
+    height: 34%;
     background:
       repeating-linear-gradient(
         90deg,
-        #ffe1b2 0 6px,
-        #dc7b26 6px 12px
+        #ffe1b2 0 10px,
+        #dc7b26 10px 16px
       );
     border: 3px solid #5f2f11;
+    border-radius: 0 0 7px 7px;
   }
 
   .cat-head {
     position: absolute;
-    left: -22%;
-    top: -48%;
-    width: 42%;
-    height: 66%;
+    left: -24%;
+    top: -54%;
+    width: 46%;
+    height: 74%;
     background: #ffb04b;
     border: 3px solid #5f2f11;
+    border-radius: 6px;
     animation: cat-look 14s linear infinite;
   }
 
@@ -558,23 +565,25 @@ import Layout from '../components/layout.astro';
   .cat-tail {
     position: absolute;
     right: -18%;
-    top: 18%;
+    top: 8%;
     width: 18%;
-    height: 64%;
+    height: 82%;
     background: #d7721f;
     border: 3px solid #5f2f11;
+    border-radius: 8px;
     animation: tail-wag 0.9s steps(2, end) infinite;
   }
 
   .pixel-plane {
     position: absolute;
     left: -16%;
-    top: 11%;
-    width: 12%;
-    height: 5.4%;
+    top: 10%;
+    width: 14%;
+    height: 6.4%;
     z-index: 5;
     background:
-      linear-gradient(180deg, #f7fbff 0 52%, #122c58 52% 100%);
+      linear-gradient(180deg, #f7fbff 0 52%, #122c58 52% 100%),
+      linear-gradient(90deg, transparent 0 14%, #345b97 14% 86%, transparent 86% 100%);
     border: 3px solid #1d2f47;
     box-shadow: inset 0 -3px 0 #0d2144;
     opacity: 0;
@@ -585,8 +594,8 @@ import Layout from '../components/layout.astro';
     position: absolute;
     left: -18%;
     bottom: 8%;
-    width: 20%;
-    height: 94%;
+    width: 22%;
+    height: 96%;
     border: 3px solid #1d2f47;
     background:
       linear-gradient(180deg, #f7fbff 0 52%, #122c58 52% 100%);
@@ -612,11 +621,12 @@ import Layout from '../components/layout.astro';
   .pixel-plane::before {
     content: '';
     position: absolute;
-    left: 28%;
-    top: -58%;
-    width: 42%;
-    height: 58%;
-    background: #f9fcff;
+    left: 26%;
+    top: -64%;
+    width: 46%;
+    height: 64%;
+    background:
+      linear-gradient(90deg, #f9fcff 0 48%, #dbe6f7 48% 100%);
     border: 3px solid #1d2f47;
     border-bottom: none;
     border-radius: 2px 2px 0 0;
@@ -638,8 +648,8 @@ import Layout from '../components/layout.astro';
     position: absolute;
     left: -1%;
     top: 24%;
-    width: 38%;
-    height: 52%;
+    width: 44%;
+    height: 56%;
     background:
       linear-gradient(180deg, #f7fbff 0 52%, #122c58 52% 100%);
     border: 3px solid #1d2f47;
@@ -651,8 +661,8 @@ import Layout from '../components/layout.astro';
     position: absolute;
     right: -18%;
     top: 18%;
-    width: 16%;
-    height: 64%;
+    width: 19%;
+    height: 68%;
     border: 3px solid #1d2f47;
     background:
       repeating-linear-gradient(90deg, #f4f7fd 0 2px, #9eaec5 2px 4px);
