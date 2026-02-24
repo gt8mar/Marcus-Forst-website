@@ -1123,9 +1123,9 @@ import Layout from '../components/layout.astro';
     }
 
     .riverfront-strip {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      height: 28%;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: 1fr;
+      height: 22%;
       bottom: 42%;
       gap: 3px;
       padding: 0 6px;
