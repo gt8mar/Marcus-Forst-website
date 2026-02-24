@@ -4,20 +4,47 @@ import Layout from '../components/layout.astro';
 
 <Layout
   title="Where In The World Is Marcus"
-  description="A very serious geolocation dashboard."
+  description="Now broadcasting from Columbus, Mississippi."
   currentPath="/where-in-the-world-is-marcus"
 >
-  <main class="retro-page">
+  <main class="pixel-page">
     <h1>Where in the world is Marcus?</h1>
-    <p class="location" aria-label="Current location">Altus, Oklahoma</p>
+    <p class="location" aria-label="Current location">Columbus, Mississippi</p>
+    <p class="tagline">Pixel steamboat report from the Tombigbee</p>
+    <div class="pixel-scene" aria-hidden="true">
+      <div class="pixel-sun"></div>
+      <div class="pixel-city"></div>
+      <div class="pixel-river">
+        <div class="boat">
+          <span class="smoke smoke-1"></span>
+          <span class="smoke smoke-2"></span>
+          <span class="smoke smoke-3"></span>
+          <span class="wheel"></span>
+        </div>
+        <div class="sparkle sparkle-1"></div>
+        <div class="sparkle sparkle-2"></div>
+        <div class="sparkle sparkle-3"></div>
+      </div>
+    </div>
     <p class="back-home">
       <a href="/">Take me back home</a>
+    </p>
+    <p class="archive-link">
+      <a href="/archive/where-in-the-world-is-marcus-oklahoma">View Oklahoma archive</a>
     </p>
   </main>
 </Layout>
 
 <style>
-  .retro-page {
+  .pixel-page {
+    --ink: #f6f7ff;
+    --sky-top: #ffb45f;
+    --sky-mid: #f06b6b;
+    --sky-bottom: #61458f;
+    --river-dark: #12345b;
+    --river-mid: #1b4f7e;
+    --river-light: #3d9ad1;
+    --pixel-shadow: #1a1233;
     width: 100%;
     min-height: calc(100vh - 3.5rem);
     display: flex;
@@ -25,56 +52,313 @@ import Layout from '../components/layout.astro';
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 2rem 1rem 5rem;
-    background:
-      radial-gradient(circle at 20% 20%, #ffef66 0%, #ffef66 10%, transparent 11%),
-      radial-gradient(circle at 80% 25%, #7dffea 0%, #7dffea 9%, transparent 10%),
-      radial-gradient(circle at 70% 80%, #ff98f0 0%, #ff98f0 8%, transparent 9%),
-      #01008b;
-    color: #ffffff;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    background: linear-gradient(
+      180deg,
+      var(--sky-top) 0%,
+      var(--sky-mid) 38%,
+      var(--sky-bottom) 62%,
+      #11102d 100%
+    );
+    color: var(--ink);
+    font-family: 'Courier New', Courier, monospace;
+    image-rendering: pixelated;
   }
 
-  .retro-page h1 {
+  .pixel-page h1 {
     margin: 0;
-    font-size: clamp(1.6rem, 4vw, 2.4rem);
-    text-shadow: 2px 2px 0 #ff00ff;
+    font-size: clamp(1.3rem, 3.2vw, 2.2rem);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-shadow: 3px 3px 0 var(--pixel-shadow);
   }
 
   .location {
     margin: 0;
-    font-size: clamp(2rem, 8vw, 4.5rem);
+    font-size: clamp(1.9rem, 6.5vw, 3.8rem);
     font-weight: 700;
-    color: #00ffea;
-    text-shadow:
-      0 0 10px #00ffea,
-      3px 3px 0 #ff00ff;
-    animation: blink 1s steps(2, start) infinite;
+    color: #84f8ff;
+    text-shadow: 4px 4px 0 #18355e;
+    line-height: 1.08;
+  }
+
+  .tagline {
+    margin: 0;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffe8b3;
+  }
+
+  .pixel-scene {
+    width: min(92vw, 760px);
+    aspect-ratio: 16 / 9;
+    border: 5px solid #0d0e2e;
+    box-shadow:
+      0 0 0 5px #f8d65a,
+      10px 10px 0 #0d0e2e;
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 201, 109, 0.7) 0%,
+        rgba(240, 107, 107, 0.4) 40%,
+        rgba(14, 24, 61, 0) 64%
+      ),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 4px, transparent 4px 8px),
+      linear-gradient(180deg, #8a5f85 0%, #402f69 64%, #111832 100%);
+  }
+
+  .pixel-sun {
+    position: absolute;
+    top: 12%;
+    right: 8%;
+    width: 16%;
+    aspect-ratio: 1;
+    background: #ffef95;
+    box-shadow:
+      0 0 0 6px #ff9a64,
+      0 0 0 12px rgba(255, 154, 100, 0.45);
+    animation: pulse-sun 2.8s steps(2, end) infinite;
+  }
+
+  .pixel-city {
+    position: absolute;
+    bottom: 36%;
+    left: 0;
+    width: 100%;
+    height: 24%;
+    background:
+      linear-gradient(90deg, transparent 0 3%, #2f264f 3% 8%, transparent 8% 10%, #201a3f 10% 15%, transparent 15% 18%, #362d5b 18% 23%, transparent 23% 26%, #271f49 26% 33%, transparent 33% 35%, #33295a 35% 40%, transparent 40% 43%, #241d47 43% 48%, transparent 48% 52%, #362d5b 52% 57%, transparent 57% 61%, #251e48 61% 67%, transparent 67% 70%, #2d2452 70% 76%, transparent 76% 80%, #201a3f 80% 86%, transparent 86% 100%);
+    box-shadow: 0 -4px 0 #ffcc7a;
+  }
+
+  .pixel-river {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 38%;
+    background:
+      repeating-linear-gradient(
+        180deg,
+        var(--river-light) 0 8px,
+        var(--river-mid) 8px 16px,
+        var(--river-dark) 16px 24px
+      );
+    overflow: hidden;
+  }
+
+  .pixel-river::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 20px,
+        rgba(255, 255, 255, 0.12) 20px 24px,
+        transparent 24px 38px
+      );
+    animation: water-shift 1.8s steps(4, end) infinite;
+  }
+
+  .boat {
+    position: absolute;
+    bottom: 26%;
+    left: -22%;
+    width: 21%;
+    aspect-ratio: 3 / 2;
+    background:
+      linear-gradient(180deg, #fff9e6 0 38%, transparent 38% 100%),
+      linear-gradient(180deg, transparent 0 58%, #b02f40 58% 74%, #51163a 74% 100%);
+    box-shadow: 0 0 0 4px #2a123d;
+    animation: boat-sail 10s linear infinite;
+  }
+
+  .boat::before {
+    content: '';
+    position: absolute;
+    top: -26%;
+    left: 18%;
+    width: 18%;
+    height: 22%;
+    background: #fff4b2;
+    box-shadow:
+      0 0 0 3px #2a123d,
+      130% 22% 0 0 #fff4b2,
+      130% 22% 0 3px #2a123d;
+  }
+
+  .boat::after {
+    content: '';
+    position: absolute;
+    right: -7%;
+    bottom: 12%;
+    width: 9%;
+    height: 46%;
+    background:
+      repeating-linear-gradient(180deg, #ffe7a1 0 6px, #f39c58 6px 12px);
+    border: 3px solid #2a123d;
+  }
+
+  .wheel {
+    position: absolute;
+    bottom: -14%;
+    left: 44%;
+    width: 18%;
+    aspect-ratio: 1;
+    border: 4px solid #2a123d;
+    background:
+      conic-gradient(from 0deg, #ffe7a1 0 25%, #d85757 25% 50%, #ffe7a1 50% 75%, #d85757 75% 100%);
+    animation: wheel-spin 0.9s steps(4, end) infinite;
+  }
+
+  .smoke {
+    position: absolute;
+    top: -34%;
+    width: 10%;
+    aspect-ratio: 1;
+    background: #efe8ff;
+    opacity: 0;
+    animation: puff 1.7s steps(3, end) infinite;
+  }
+
+  .smoke-1 {
+    left: 26%;
+    animation-delay: 0.2s;
+  }
+
+  .smoke-2 {
+    left: 42%;
+    animation-delay: 0.6s;
+  }
+
+  .smoke-3 {
+    left: 58%;
+    animation-delay: 0.95s;
+  }
+
+  .sparkle {
+    position: absolute;
+    bottom: 14%;
+    width: 8px;
+    height: 8px;
+    background: #d8f4ff;
+    animation: sparkle 1.1s steps(2, end) infinite;
+  }
+
+  .sparkle-1 {
+    left: 24%;
+    animation-delay: 0.1s;
+  }
+
+  .sparkle-2 {
+    left: 55%;
+    animation-delay: 0.55s;
+  }
+
+  .sparkle-3 {
+    left: 78%;
+    animation-delay: 0.85s;
   }
 
   .back-home {
     margin-top: auto;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .back-home a,
   .back-home a:visited {
-    color: #ffff00 !important;
-    font-size: 1.1rem;
+    color: #ffe28f !important;
+    font-size: 1rem;
     text-decoration: underline !important;
     text-decoration-color: currentColor !important;
     font-weight: 700;
+    letter-spacing: 0.04em;
   }
 
   .back-home a:hover,
   .back-home a:focus {
-    color: #ff98f0 !important;
+    color: #84f8ff !important;
   }
 
-  @keyframes blink {
+  .archive-link {
+    margin: 0.2rem 0 0;
+    font-size: 0.85rem;
+  }
+
+  .archive-link a,
+  .archive-link a:visited {
+    color: #f6f7ff !important;
+    text-decoration: underline !important;
+    text-decoration-color: currentColor !important;
+  }
+
+  .archive-link a:hover,
+  .archive-link a:focus {
+    color: #ffe28f !important;
+  }
+
+  @keyframes boat-sail {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(640%);
+    }
+  }
+
+  @keyframes wheel-spin {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @keyframes puff {
+    0% {
+      opacity: 0;
+      transform: translateY(0) scale(0.6);
+    }
+    30% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-34px) translateX(8px) scale(1.1);
+    }
+  }
+
+  @keyframes water-shift {
+    to {
+      transform: translateX(24px);
+    }
+  }
+
+  @keyframes sparkle {
     50% {
-      opacity: 0.15;
+      opacity: 0.2;
+      transform: translateY(-4px);
+    }
+  }
+
+  @keyframes pulse-sun {
+    50% {
+      transform: translateY(2px);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .pixel-scene {
+      box-shadow:
+        0 0 0 4px #f8d65a,
+        6px 6px 0 #0d0e2e;
+    }
+
+    .tagline {
+      max-width: 26ch;
     }
   }
 </style>
