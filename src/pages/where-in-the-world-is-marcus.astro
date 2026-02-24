@@ -31,6 +31,9 @@ import Layout from '../components/layout.astro';
       </div>
       <div class="street-band"></div>
       <div class="grass-band"></div>
+      <div class="pixel-plane" aria-hidden="true">
+        <span class="prop"></span>
+      </div>
       <div class="tree-line">
         <div class="tree tree-1"></div>
         <div class="tree tree-2"></div>
@@ -39,6 +42,13 @@ import Layout from '../components/layout.astro';
         <div class="tree tree-5"></div>
       </div>
       <div class="riverwalk-path"></div>
+      <div class="pixel-cat" aria-hidden="true">
+        <span class="cat-head">
+          <span class="ear ear-left"></span>
+          <span class="ear ear-right"></span>
+        </span>
+        <span class="cat-tail"></span>
+      </div>
       <div class="pixel-river">
         <div class="boat">
           <span class="smoke smoke-1"></span>
@@ -437,6 +447,110 @@ import Layout from '../components/layout.astro';
       inset 0 -2px 0 #7d6142;
   }
 
+  .pixel-cat {
+    position: absolute;
+    left: -12%;
+    bottom: 32%;
+    width: 7%;
+    height: 5%;
+    z-index: 6;
+    background:
+      linear-gradient(180deg, #ffa63d 0 55%, #d7721f 55% 100%);
+    border: 3px solid #5f2f11;
+    box-shadow:
+      inset 0 -2px 0 #c7681f,
+      inset 0 2px 0 #ffd28e;
+    animation: cat-walk 14s linear infinite;
+  }
+
+  .cat-head {
+    position: absolute;
+    right: -22%;
+    top: -48%;
+    width: 42%;
+    height: 66%;
+    background: #ffb04b;
+    border: 3px solid #5f2f11;
+    animation: cat-look 14s linear infinite;
+  }
+
+  .ear {
+    position: absolute;
+    top: -38%;
+    width: 34%;
+    height: 42%;
+    background: #ffb04b;
+    border: 3px solid #5f2f11;
+  }
+
+  .ear-left {
+    left: 3%;
+  }
+
+  .ear-right {
+    right: 3%;
+  }
+
+  .cat-tail {
+    position: absolute;
+    left: -18%;
+    top: 18%;
+    width: 18%;
+    height: 64%;
+    background: #d7721f;
+    border: 3px solid #5f2f11;
+    animation: tail-wag 0.9s steps(2, end) infinite;
+  }
+
+  .pixel-plane {
+    position: absolute;
+    left: -16%;
+    top: 12%;
+    width: 11%;
+    height: 5%;
+    z-index: 5;
+    background:
+      linear-gradient(180deg, #e9f0ff 0 38%, #8aa3c8 38% 100%);
+    border: 3px solid #1d2f47;
+    box-shadow: inset 0 -3px 0 #627c9f;
+    opacity: 0;
+    animation: plane-fly 24s linear infinite;
+  }
+
+  .pixel-plane::before {
+    content: '';
+    position: absolute;
+    left: 22%;
+    top: -72%;
+    width: 56%;
+    height: 65%;
+    background: #d6e6ff;
+    border: 3px solid #1d2f47;
+  }
+
+  .pixel-plane::after {
+    content: '';
+    position: absolute;
+    right: -16%;
+    top: 30%;
+    width: 19%;
+    height: 42%;
+    background: #d6e6ff;
+    border: 3px solid #1d2f47;
+  }
+
+  .prop {
+    position: absolute;
+    left: -16%;
+    top: 26%;
+    width: 14%;
+    height: 48%;
+    border: 3px solid #1d2f47;
+    background:
+      repeating-linear-gradient(90deg, #f7c057 0 3px, #d1882c 3px 6px);
+    animation: prop-spin 0.3s steps(2, end) infinite;
+  }
+
   .pixel-river::before {
     content: '';
     position: absolute;
@@ -494,22 +608,6 @@ import Layout from '../components/layout.astro';
     height: 52%;
     background:
       repeating-linear-gradient(180deg, #f4cf7d 0 5px, #cd7a3f 5px 10px);
-    border: 3px solid #2a123d;
-  }
-
-  .boat .wheel::before {
-    content: '';
-    position: absolute;
-    left: -155%;
-    bottom: 146%;
-    width: 390%;
-    height: 42%;
-    background:
-      repeating-linear-gradient(
-        90deg,
-        #fff0ca 0 10px,
-        #d9b681 10px 20px
-      );
     border: 3px solid #2a123d;
   }
 
@@ -759,6 +857,72 @@ import Layout from '../components/layout.astro';
     }
   }
 
+  @keyframes plane-fly {
+    0% {
+      transform: translateX(0) translateY(0);
+      opacity: 0;
+    }
+    8% {
+      opacity: 0;
+    }
+    12% {
+      opacity: 1;
+    }
+    34% {
+      transform: translateX(1150%) translateY(-12px);
+      opacity: 1;
+    }
+    38% {
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(1150%) translateY(-12px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes prop-spin {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @keyframes cat-walk {
+    0% {
+      transform: translateX(0);
+    }
+    38% {
+      transform: translateX(520%);
+    }
+    62% {
+      transform: translateX(520%);
+    }
+    100% {
+      transform: translateX(1450%);
+    }
+  }
+
+  @keyframes cat-look {
+    0%,
+    34% {
+      transform: none;
+    }
+    40%,
+    62% {
+      transform: rotate(-10deg) translateX(-2px);
+    }
+    70%,
+    100% {
+      transform: none;
+    }
+  }
+
+  @keyframes tail-wag {
+    50% {
+      transform: translateY(-1px);
+    }
+  }
+
   @keyframes sparkle {
     50% {
       opacity: 0.2;
@@ -806,6 +970,17 @@ import Layout from '../components/layout.astro';
     .tree-line {
       height: 16%;
       bottom: 42%;
+    }
+
+    .pixel-plane {
+      width: 15%;
+      height: 4.5%;
+    }
+
+    .pixel-cat {
+      width: 9%;
+      height: 4.5%;
+      bottom: 33%;
     }
 
     .street-band,
