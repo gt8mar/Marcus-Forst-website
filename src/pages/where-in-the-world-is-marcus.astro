@@ -555,81 +555,94 @@ import Layout from '../components/layout.astro';
   .tree-line {
     position: absolute;
     left: 0;
-    bottom: 37.5%;
+    bottom: 42%;
     width: 100%;
-    height: 7%;
-    z-index: 4;
+    height: 24%;
+    z-index: 2;
     pointer-events: none;
   }
 
   .tree {
     position: absolute;
     bottom: 0;
-    width: 8%;
-    height: 100%;
-    background: #2f5e2f;
-    border: 3px solid #1f3926;
+    width: 4.4%;
+    height: 42%;
+    background: #3f2f28;
+    border: 3px solid #2a1e1a;
     box-shadow:
-      inset 0 -4px 0 #233f2b,
-      0 2px 0 #172c1d;
+      inset 0 -5px 0 #2f231f,
+      inset 0 5px 0 #59443a;
   }
 
   .tree::before {
     content: '';
     position: absolute;
-    bottom: 75%;
-    left: -35%;
-    width: 170%;
-    height: 90%;
+    bottom: 82%;
+    left: -112%;
+    width: 324%;
+    height: 118%;
     background:
+      linear-gradient(
+        180deg,
+        rgba(200, 232, 160, 0.26) 0 16%,
+        transparent 16% 100%
+      ),
       repeating-linear-gradient(
         90deg,
-        #3e7a3b 0 8px,
-        #336833 8px 16px
+        #3f6f3a 0 10px,
+        #355f34 10px 20px
       );
-    border: 3px solid #1f3926;
-    box-shadow: inset 0 3px 0 rgba(197, 235, 157, 0.4);
+    border: 3px solid #213826;
+    box-shadow:
+      inset 0 -4px 0 #2e5431,
+      0 5px 0 rgba(36, 52, 43, 0.8);
   }
 
   .tree::after {
     content: '';
     position: absolute;
-    bottom: 136%;
-    left: -15%;
-    width: 130%;
-    height: 58%;
+    bottom: 148%;
+    left: -68%;
+    width: 236%;
+    height: 92%;
     background:
+      linear-gradient(
+        180deg,
+        rgba(200, 232, 160, 0.22) 0 14%,
+        transparent 14% 100%
+      ),
       repeating-linear-gradient(
         90deg,
-        #3a7037 0 6px,
-        #315f31 6px 12px
+        #3a6836 0 8px,
+        #315a30 8px 16px
       );
-    border: 3px solid #1f3926;
+    border: 3px solid #213826;
+    box-shadow: inset 0 -3px 0 #2b4f2d;
   }
 
   .tree-1 {
-    left: 4%;
-    height: 78%;
+    left: 6%;
+    height: 72%;
   }
 
   .tree-2 {
-    left: 24%;
-    height: 94%;
-  }
-
-  .tree-3 {
-    left: 46%;
-    height: 84%;
-  }
-
-  .tree-4 {
-    left: 67%;
+    left: 27%;
     height: 100%;
   }
 
+  .tree-3 {
+    left: 50%;
+    height: 88%;
+  }
+
+  .tree-4 {
+    left: 72%;
+    height: 108%;
+  }
+
   .tree-5 {
-    left: 86%;
-    height: 80%;
+    left: 90%;
+    height: 76%;
   }
 
   .pixel-scene.is-night {
@@ -733,7 +746,7 @@ import Layout from '../components/layout.astro';
 
   @keyframes pulse-sun {
     50% {
-      transform: translateY(2px);
+      transform: translate(-50%, calc(-50% + 2px));
     }
   }
 
@@ -769,8 +782,8 @@ import Layout from '../components/layout.astro';
     }
 
     .tree-line {
-      height: 6.2%;
-      bottom: 37.7%;
+      height: 19%;
+      bottom: 42%;
     }
 
     .street-band,
@@ -825,8 +838,8 @@ import Layout from '../components/layout.astro';
 
     if (isDay) {
       const progress = (seconds - dayStart) / (dayEnd - dayStart);
-      const sunX = 6 + 80 * progress;
-      const sunY = 62 - 52 * Math.sin(progress * Math.PI);
+      const sunX = 72 + 14 * progress;
+      const sunY = 16 - 8 * Math.sin(progress * Math.PI);
       scene.style.setProperty('--sun-x', `${sunX}%`);
       scene.style.setProperty('--sun-y', `${sunY}%`);
       return;
@@ -834,8 +847,8 @@ import Layout from '../components/layout.astro';
 
     const nightSeconds = seconds >= dayEnd ? seconds - dayEnd : seconds + 6 * 3600;
     const nightProgress = nightSeconds / (12 * 3600);
-    const moonX = 12 + 74 * nightProgress;
-    const moonY = 74 - 54 * nightProgress;
+    const moonX = 16 + 24 * nightProgress;
+    const moonY = 72 - 30 * nightProgress;
     scene.style.setProperty('--moon-x', `${moonX}%`);
     scene.style.setProperty('--moon-y', `${moonY}%`);
   };
