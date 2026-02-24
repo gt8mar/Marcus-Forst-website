@@ -32,6 +32,7 @@ import Layout from '../components/layout.astro';
       <div class="street-band"></div>
       <div class="grass-band"></div>
       <div class="pixel-plane" aria-hidden="true">
+        <span class="plane-wing"></span>
         <span class="prop"></span>
       </div>
       <div class="tree-line">
@@ -46,6 +47,7 @@ import Layout from '../components/layout.astro';
         <span class="cat-head">
           <span class="ear ear-left"></span>
           <span class="ear ear-right"></span>
+          <span class="cat-face"></span>
         </span>
         <span class="cat-tail"></span>
       </div>
@@ -449,29 +451,58 @@ import Layout from '../components/layout.astro';
 
   .pixel-cat {
     position: absolute;
-    left: -12%;
+    right: -12%;
     bottom: 32%;
     width: 7%;
     height: 5%;
     z-index: 6;
     background:
-      linear-gradient(180deg, #ffa63d 0 55%, #d7721f 55% 100%);
+      linear-gradient(180deg, #ffb450 0 55%, #dc7b26 55% 100%);
     border: 3px solid #5f2f11;
     box-shadow:
       inset 0 -2px 0 #c7681f,
       inset 0 2px 0 #ffd28e;
-    animation: cat-walk 14s linear infinite;
+    animation: cat-walk-rtl 14s linear infinite;
+  }
+
+  .pixel-cat::before {
+    content: '';
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: -28%;
+    height: 30%;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        #ffe1b2 0 6px,
+        #dc7b26 6px 12px
+      );
+    border: 3px solid #5f2f11;
   }
 
   .cat-head {
     position: absolute;
-    right: -22%;
+    left: -22%;
     top: -48%;
     width: 42%;
     height: 66%;
     background: #ffb04b;
     border: 3px solid #5f2f11;
     animation: cat-look 14s linear infinite;
+  }
+
+  .cat-face {
+    position: absolute;
+    left: 16%;
+    top: 28%;
+    width: 68%;
+    height: 44%;
+    background:
+      radial-gradient(circle at 28% 40%, #2e1a12 0 2px, transparent 3px),
+      radial-gradient(circle at 72% 40%, #2e1a12 0 2px, transparent 3px),
+      radial-gradient(circle at 50% 74%, #c45a56 0 2px, transparent 3px),
+      linear-gradient(180deg, transparent 60%, rgba(255, 234, 198, 0.9) 60% 100%);
   }
 
   .ear {
@@ -493,7 +524,7 @@ import Layout from '../components/layout.astro';
 
   .cat-tail {
     position: absolute;
-    left: -18%;
+    right: -18%;
     top: 18%;
     width: 18%;
     height: 64%;
@@ -505,50 +536,65 @@ import Layout from '../components/layout.astro';
   .pixel-plane {
     position: absolute;
     left: -16%;
-    top: 12%;
-    width: 11%;
-    height: 5%;
+    top: 11%;
+    width: 12%;
+    height: 5.4%;
     z-index: 5;
     background:
-      linear-gradient(180deg, #e9f0ff 0 38%, #8aa3c8 38% 100%);
+      linear-gradient(180deg, #f7fbff 0 52%, #122c58 52% 100%);
     border: 3px solid #1d2f47;
-    box-shadow: inset 0 -3px 0 #627c9f;
+    box-shadow: inset 0 -3px 0 #0d2144;
     opacity: 0;
-    animation: plane-fly 24s linear infinite;
+    animation: plane-fly 26s linear infinite;
   }
 
   .pixel-plane::before {
     content: '';
     position: absolute;
-    left: 22%;
-    top: -72%;
-    width: 56%;
-    height: 65%;
-    background: #d6e6ff;
+    left: 28%;
+    top: -58%;
+    width: 42%;
+    height: 58%;
+    background: #f9fcff;
     border: 3px solid #1d2f47;
+    border-bottom: none;
+    border-radius: 2px 2px 0 0;
   }
 
   .pixel-plane::after {
     content: '';
     position: absolute;
-    right: -16%;
-    top: 30%;
-    width: 19%;
-    height: 42%;
-    background: #d6e6ff;
+    right: -10%;
+    top: 8%;
+    width: 14%;
+    height: 58%;
+    background:
+      linear-gradient(180deg, #f7fbff 0 52%, #122c58 52% 100%);
     border: 3px solid #1d2f47;
+  }
+
+  .plane-wing {
+    position: absolute;
+    left: 12%;
+    top: 32%;
+    width: 76%;
+    height: 24%;
+    background:
+      linear-gradient(180deg, #f7fbff 0 52%, #122c58 52% 100%);
+    border: 3px solid #1d2f47;
+    z-index: -1;
   }
 
   .prop {
     position: absolute;
-    left: -16%;
-    top: 26%;
-    width: 14%;
-    height: 48%;
+    left: -18%;
+    top: 18%;
+    width: 16%;
+    height: 64%;
     border: 3px solid #1d2f47;
     background:
-      repeating-linear-gradient(90deg, #f7c057 0 3px, #d1882c 3px 6px);
-    animation: prop-spin 0.3s steps(2, end) infinite;
+      repeating-linear-gradient(90deg, #f4f7fd 0 2px, #9eaec5 2px 4px);
+    animation: prop-spin 0.12s linear infinite;
   }
 
   .pixel-river::before {
@@ -868,11 +914,11 @@ import Layout from '../components/layout.astro';
     12% {
       opacity: 1;
     }
-    34% {
+    36% {
       transform: translateX(1150%) translateY(-12px);
       opacity: 1;
     }
-    38% {
+    41% {
       opacity: 0;
     }
     100% {
@@ -887,18 +933,18 @@ import Layout from '../components/layout.astro';
     }
   }
 
-  @keyframes cat-walk {
+  @keyframes cat-walk-rtl {
     0% {
       transform: translateX(0);
     }
     38% {
-      transform: translateX(520%);
+      transform: translateX(-520%);
     }
     62% {
-      transform: translateX(520%);
+      transform: translateX(-520%);
     }
     100% {
-      transform: translateX(1450%);
+      transform: translateX(-1450%);
     }
   }
 
@@ -909,7 +955,7 @@ import Layout from '../components/layout.astro';
     }
     40%,
     62% {
-      transform: rotate(-10deg) translateX(-2px);
+      transform: rotate(10deg) translateX(2px);
     }
     70%,
     100% {
