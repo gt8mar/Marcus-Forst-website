@@ -1,0 +1,276 @@
+---
+import Layout from '../components/layout.astro';
+---
+
+<Layout
+  title="Draw Mockup"
+  description="Draw annotations on a screenshot to communicate design changes."
+  currentPath="/draw"
+>
+  <main class="draw-page">
+    <section class="draw-header">
+      <h1>Draw Your Mockup</h1>
+      <p>Upload a screenshot, draw what you want, then export a PNG and send it here.</p>
+    </section>
+
+    <section class="draw-controls" aria-label="Drawing controls">
+      <label class="control">
+        <span>Screenshot</span>
+        <input id="imageInput" type="file" accept="image/*" />
+      </label>
+
+      <label class="control">
+        <span>Mode</span>
+        <select id="modeSelect">
+          <option value="draw">Draw</option>
+          <option value="erase">Erase</option>
+        </select>
+      </label>
+
+      <label class="control">
+        <span>Color</span>
+        <input id="colorInput" type="color" value="#ff2d55" />
+      </label>
+
+      <label class="control">
+        <span>Brush</span>
+        <input id="sizeInput" type="range" min="1" max="40" value="6" />
+      </label>
+
+      <button id="clearBtn" type="button">Clear Drawing</button>
+      <button id="undoBtn" type="button">Undo</button>
+      <button id="downloadBtn" type="button">Download PNG</button>
+    </section>
+
+    <section class="canvas-wrap">
+      <canvas id="drawCanvas" width="1280" height="720"></canvas>
+    </section>
+
+    <section class="draw-help">
+      <p><strong>Tip:</strong> You can paste an image directly with <code>Ctrl+V</code> or <code>Cmd+V</code>.</p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .draw-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem 3rem;
+  }
+
+  .draw-header h1 {
+    margin: 0 0 0.25rem;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+  }
+
+  .draw-header p {
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+  }
+
+  .draw-controls {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.5rem;
+    align-items: end;
+    margin-bottom: 0.8rem;
+  }
+
+  .control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .control input,
+  .control select,
+  button {
+    font: inherit;
+    padding: 0.45rem 0.55rem;
+    border: 1px solid var(--lightBorder);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--text);
+  }
+
+  #colorInput {
+    padding: 0.15rem;
+    min-height: 2.2rem;
+  }
+
+  button {
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .canvas-wrap {
+    border: 1px solid var(--lightBorder);
+    border-radius: 10px;
+    overflow: auto;
+    background:
+      linear-gradient(45deg, #f7f7f7 25%, transparent 25%),
+      linear-gradient(-45deg, #f7f7f7 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #f7f7f7 75%),
+      linear-gradient(-45deg, transparent 75%, #f7f7f7 75%);
+    background-size: 20px 20px;
+    background-position:
+      0 0,
+      0 10px,
+      10px -10px,
+      -10px 0;
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    touch-action: none;
+    cursor: crosshair;
+    background: #fff;
+  }
+
+  .draw-help {
+    margin-top: 0.7rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .draw-controls {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>
+
+<script>
+  const canvas = document.getElementById('drawCanvas');
+  const ctx = canvas.getContext('2d');
+  const imageInput = document.getElementById('imageInput');
+  const modeSelect = document.getElementById('modeSelect');
+  const colorInput = document.getElementById('colorInput');
+  const sizeInput = document.getElementById('sizeInput');
+  const clearBtn = document.getElementById('clearBtn');
+  const undoBtn = document.getElementById('undoBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  let isDrawing = false;
+  let lastX = 0;
+  let lastY = 0;
+  let history = [];
+
+  const snapshot = () => {
+    history.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    if (history.length > 30) history.shift();
+  };
+
+  const clearAll = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  };
+
+  const fitImageToCanvas = (img) => {
+    clearAll();
+    const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+    const w = img.width * scale;
+    const h = img.height * scale;
+    const x = (canvas.width - w) / 2;
+    const y = (canvas.height - h) / 2;
+    ctx.drawImage(img, x, y, w, h);
+    snapshot();
+  };
+
+  const getPoint = (event) => {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const point = event.touches ? event.touches[0] : event;
+    return {
+      x: (point.clientX - rect.left) * scaleX,
+      y: (point.clientY - rect.top) * scaleY
+    };
+  };
+
+  const startDraw = (event) => {
+    event.preventDefault();
+    snapshot();
+    isDrawing = true;
+    const p = getPoint(event);
+    lastX = p.x;
+    lastY = p.y;
+  };
+
+  const draw = (event) => {
+    if (!isDrawing) return;
+    event.preventDefault();
+    const p = getPoint(event);
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    ctx.lineWidth = Number(sizeInput.value);
+    ctx.globalCompositeOperation = modeSelect.value === 'erase' ? 'destination-out' : 'source-over';
+    ctx.strokeStyle = colorInput.value;
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(p.x, p.y);
+    ctx.stroke();
+    lastX = p.x;
+    lastY = p.y;
+  };
+
+  const endDraw = () => {
+    isDrawing = false;
+  };
+
+  imageInput.addEventListener('change', (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => fitImageToCanvas(img);
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  document.addEventListener('paste', (event) => {
+    const item = Array.from(event.clipboardData?.items || []).find((i) => i.type.startsWith('image/'));
+    if (!item) return;
+    const file = item.getAsFile();
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => fitImageToCanvas(img);
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  clearBtn.addEventListener('click', () => {
+    snapshot();
+    clearAll();
+  });
+
+  undoBtn.addEventListener('click', () => {
+    const prev = history.pop();
+    if (!prev) return;
+    ctx.putImageData(prev, 0, 0);
+  });
+
+  downloadBtn.addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.download = 'mockup-drawing.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  });
+
+  ['mousedown', 'touchstart'].forEach((evt) => canvas.addEventListener(evt, startDraw, { passive: false }));
+  ['mousemove', 'touchmove'].forEach((evt) => canvas.addEventListener(evt, draw, { passive: false }));
+  ['mouseup', 'mouseleave', 'touchend', 'touchcancel'].forEach((evt) => canvas.addEventListener(evt, endDraw));
+
+  clearAll();
+</script>
