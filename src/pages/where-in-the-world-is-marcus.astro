@@ -12,28 +12,13 @@ import Layout from '../components/layout.astro';
     <p class="location" aria-label="Current location">Saint Petersburg, Florida</p>
     <p class="tagline">Bayside updates from Florida's Gulf Coast</p>
 
-    <div class="scene" aria-hidden="true">
-      <div class="sky"></div>
-      <div class="bay bay-back"></div>
-      <div class="bay bay-front"></div>
-
-      <div class="pirate-ship">
-        <span class="mast"></span>
-        <span class="sail"></span>
-        <span class="flag"></span>
-      </div>
-
-      <div class="house">
-        <span class="roof"></span>
-        <span class="door"></span>
-        <span class="window window-left"></span>
-        <span class="window window-right"></span>
-      </div>
-
-      <div class="alligator"></div>
-      <div class="manatee"></div>
-      <div class="beach"></div>
-    </div>
+    <figure class="scene-image">
+      <img
+        src="/images/stpetecartoon.png"
+        alt="Cartoon blue house with a yellow door on a beach in Saint Petersburg, Florida"
+        loading="eager"
+      />
+    </figure>
 
     <section class="counts" aria-label="Wildlife sightings">
       <h2>Sightings</h2>
@@ -56,15 +41,6 @@ import Layout from '../components/layout.astro';
 <style>
   .suncoast-page {
     --ink: #f4faff;
-    --navy: #0d2f57;
-    --blue-house: #4a9fe3;
-    --yellow-door: #f4cc45;
-    --sand: #f3d89b;
-    --sand-edge: #d2b06f;
-    --wave-1: #87d8f8;
-    --wave-2: #4db7e1;
-    --wave-3: #278ec2;
-    --sea-shadow: #0b537f;
 
     width: 100%;
     min-height: calc(100vh - 3.5rem);
@@ -103,244 +79,18 @@ import Layout from '../components/layout.astro';
     color: #e5f6ff;
   }
 
-  .scene {
+  .scene-image {
     width: min(94vw, 780px);
-    aspect-ratio: 16 / 9.8;
-    position: relative;
-    overflow: hidden;
+    margin: 0;
     border: 5px solid #0f2948;
     box-shadow: 0 0 0 5px #f9e07e, 10px 10px 0 #0f2948;
-    background: linear-gradient(180deg, #91ddff 0%, #67c4ed 56%, #4aa7d6 100%);
+    background: #67c4ed;
   }
 
-  .sky {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 14% 18%, #fff8c9 0 8%, transparent 9%),
-      radial-gradient(circle at 77% 15%, rgba(255, 255, 255, 0.9) 0 7%, transparent 8%),
-      radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.7) 0 4%, transparent 5%);
-  }
-
-  .bay {
-    position: absolute;
-    left: 0;
+  .scene-image img {
+    display: block;
     width: 100%;
-    background:
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 20px,
-        rgba(255, 255, 255, 0.25) 20px 28px,
-        transparent 28px 50px
-      ),
-      repeating-linear-gradient(180deg, var(--wave-1) 0 12px, var(--wave-2) 12px 24px, var(--wave-3) 24px 36px);
-  }
-
-  .bay-back {
-    bottom: 18%;
-    height: 34%;
-    animation: wave-shift 2.4s linear infinite;
-  }
-
-  .bay-front {
-    bottom: 0;
-    height: 24%;
-    box-shadow: inset 0 6px 0 rgba(255, 255, 255, 0.32);
-    animation: wave-shift 1.8s linear infinite reverse;
-  }
-
-  .beach {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 22%;
-    background:
-      radial-gradient(circle at 24% 18%, rgba(255, 255, 255, 0.35) 0 8%, transparent 9%),
-      radial-gradient(circle at 55% 70%, rgba(0, 0, 0, 0.08) 0 6%, transparent 7%),
-      linear-gradient(180deg, var(--sand) 0%, #eac886 80%, var(--sand-edge) 100%);
-    border-top: 4px solid #f4e7bc;
-  }
-
-  .house {
-    position: absolute;
-    left: 22%;
-    bottom: 14%;
-    width: 22%;
-    height: 33%;
-    background: var(--blue-house);
-    border: 4px solid #204f7d;
-    box-shadow: inset 0 -8px 0 #3587cd;
-    z-index: 4;
-  }
-
-  .roof {
-    position: absolute;
-    left: -12%;
-    top: -26%;
-    width: 124%;
-    height: 34%;
-    background: #eb6f5f;
-    border: 4px solid #8f3024;
-    clip-path: polygon(0 100%, 50% 0, 100% 100%);
-  }
-
-  .door {
-    position: absolute;
-    left: 39%;
-    bottom: 0;
-    width: 22%;
-    height: 48%;
-    background: var(--yellow-door);
-    border: 3px solid #8b6a14;
-    box-shadow: inset -3px 0 0 rgba(0, 0, 0, 0.16);
-  }
-
-  .door::after {
-    content: '';
-    position: absolute;
-    right: 16%;
-    top: 50%;
-    width: 8%;
-    aspect-ratio: 1;
-    background: #5b4312;
-    border-radius: 50%;
-  }
-
-  .window {
-    position: absolute;
-    bottom: 34%;
-    width: 20%;
-    height: 24%;
-    background: #ecf8ff;
-    border: 3px solid #25567f;
-    box-shadow: inset 0 -3px 0 #a3d9f4;
-  }
-
-  .window-left {
-    left: 13%;
-  }
-
-  .window-right {
-    right: 13%;
-  }
-
-  .pirate-ship {
-    position: absolute;
-    right: 16%;
-    bottom: 26%;
-    width: 17%;
-    height: 14%;
-    background: linear-gradient(180deg, #6d4638 0 42%, #4b2d24 42% 100%);
-    border: 3px solid #2a160f;
-    border-radius: 12% 12% 32% 32%;
-    z-index: 5;
-    animation: ship-bob 2.2s ease-in-out infinite;
-  }
-
-  .mast {
-    position: absolute;
-    left: 42%;
-    bottom: 90%;
-    width: 8%;
-    height: 110%;
-    background: #5a382c;
-    border: 2px solid #2a160f;
-  }
-
-  .sail {
-    position: absolute;
-    left: 50%;
-    bottom: 94%;
-    width: 44%;
-    height: 70%;
-    background: #fff7d9;
-    border: 2px solid #785f32;
-    clip-path: polygon(0 0, 100% 16%, 100% 100%, 0 90%);
-  }
-
-  .flag {
-    position: absolute;
-    left: 48%;
-    bottom: 188%;
-    width: 24%;
-    height: 20%;
-    background: #2a160f;
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
-  }
-
-  .alligator {
-    position: absolute;
-    right: 43%;
-    bottom: 15%;
-    width: 15%;
-    height: 10%;
-    background: #5d8b4f;
-    border: 3px solid #335129;
-    border-radius: 32px;
-    z-index: 6;
-  }
-
-  .alligator::before {
-    content: '';
-    position: absolute;
-    right: -18%;
-    top: 34%;
-    width: 24%;
-    height: 34%;
-    background: #5d8b4f;
-    border: 3px solid #335129;
-    clip-path: polygon(0 50%, 100% 0, 100% 100%);
-  }
-
-  .alligator::after {
-    content: '';
-    position: absolute;
-    left: 10%;
-    top: -34%;
-    width: 14%;
-    height: 14%;
-    background: #203618;
-    border-radius: 50%;
-    box-shadow: 24px 0 0 #203618;
-  }
-
-  .manatee {
-    position: absolute;
-    left: 12%;
-    bottom: 22%;
-    width: 18%;
-    height: 11%;
-    background: #7f9cac;
-    border: 3px solid #48616f;
-    border-radius: 44px;
-    z-index: 4;
-    animation: manatee-float 3s ease-in-out infinite;
-  }
-
-  .manatee::before {
-    content: '';
-    position: absolute;
-    right: -22%;
-    top: 30%;
-    width: 24%;
-    height: 34%;
-    background: #7f9cac;
-    border: 3px solid #48616f;
-    border-radius: 22px;
-    transform: rotate(14deg);
-  }
-
-  .manatee::after {
-    content: '';
-    position: absolute;
-    left: 10%;
-    top: 20%;
-    width: 12%;
-    height: 12%;
-    border-radius: 50%;
-    background: #2e4450;
-    box-shadow: 18px 4px 0 #2e4450;
+    height: auto;
   }
 
   .counts {
@@ -394,34 +144,8 @@ import Layout from '../components/layout.astro';
     color: #ffffff;
   }
 
-  @keyframes wave-shift {
-    to {
-      transform: translateX(50px);
-    }
-  }
-
-  @keyframes ship-bob {
-    0%,
-    100% {
-      transform: translateY(0) rotate(-1deg);
-    }
-    50% {
-      transform: translateY(-8px) rotate(1.5deg);
-    }
-  }
-
-  @keyframes manatee-float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-5px);
-    }
-  }
-
   @media (max-width: 640px) {
-    .scene {
+    .scene-image {
       box-shadow: 0 0 0 4px #f9e07e, 6px 6px 0 #0f2948;
     }
 
@@ -432,27 +156,6 @@ import Layout from '../components/layout.astro';
 
     .counts {
       padding: 0.85rem;
-    }
-
-    .pirate-ship {
-      right: 10%;
-      width: 20%;
-    }
-
-    .house {
-      left: 14%;
-      width: 29%;
-      height: 34%;
-    }
-
-    .alligator {
-      right: 32%;
-      width: 18%;
-    }
-
-    .manatee {
-      width: 22%;
-      left: 6%;
     }
   }
 </style>
