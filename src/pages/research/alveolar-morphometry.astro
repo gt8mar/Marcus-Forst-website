@@ -1,0 +1,56 @@
+﻿---
+import Layout from '../../components/layout.astro';
+---
+
+<Layout
+  title="Alveolar Morphometry"
+  description="A lung histology image-analysis method for chord length, septal thickness, and alveolar region measurements."
+  currentPath="/research"
+>
+  <link rel="stylesheet" href="/lung-image-analysis-method.css" />
+  <div class="page-content method-page">
+    <nav class="breadcrumb"><a href="/research/lung-image-analysis">&larr; Lung Image Analysis</a></nav>
+
+    <section class="hero-panel alveolar-hero">
+      <p class="eyebrow">Method summary</p>
+      <h1>Alveolar morphometry</h1>
+      <p>A Python implementation of chord length, septal thickness, and alveolar region measurements.</p>
+    </section>
+
+    <section>
+      <h2>Purpose</h2>
+      <p class="lead">
+        The workflow turns brightfield lung histology fields into reproducible morphometry tables.
+        It remakes the local Fiji chord-length and septal-thickness workflow in Python while keeping calibration and processing choices explicit.
+      </p>
+      <figure class="summary-figure">
+        <img src="/images/lung-image-analysis/alveolar-method.svg" alt="Schematic alveolar morphometry workflow" loading="lazy" />
+      </figure>
+    </section>
+
+    <section>
+      <h2>Workflow</h2>
+      <div class="method-card">
+        <div class="step"><div class="badge">1</div><div><h3>Load and calibrate</h3><p>Discover images from folder and filename conventions. Parse Leica metadata or a compiled calibration table for microns per pixel.</p></div><div class="diagram alveoli"><span class="space one"></span><span class="space two"></span><span class="space three"></span></div></div>
+        <div class="step"><div class="badge">2</div><div><h3>Segment airspace</h3><p>Threshold the brightfield image to separate airspace from septal tissue. Optional exclude masks remove artifacts before measurement.</p></div><div class="diagram alveoli"><span class="space one"></span><span class="space two"></span><span class="space three"></span><span class="label la">air</span><span class="label lb">air</span><span class="label lc">air</span></div></div>
+        <div class="step"><div class="badge">3</div><div><h3>Measure chord length</h3><p>Overlay a fixed horizontal and vertical grid. Connected airspace segments along the grid become chord measurements.</p></div><div class="diagram alveoli"><span class="space one"></span><span class="space two"></span><span class="space three"></span><span class="gridline h1"></span><span class="gridline h2"></span><span class="gridline v1"></span><span class="gridline v2"></span></div></div>
+        <div class="step"><div class="badge">4</div><div><h3>Measure septal thickness</h3><p>Invert the airspace mask to tissue. Compute a distance-transform thickness map, or a Fiji-style local-thickness map.</p></div><div class="diagram alveoli"><span class="heat"></span><span class="space one"></span><span class="space two"></span><span class="space three"></span></div></div>
+        <div class="step"><div class="badge">5</div><div><h3>Measure alveolar regions</h3><p>Label individual airspaces and measure area, perimeter, circularity, solidity, axes, and Feret diameter.</p></div><div class="diagram alveoli"><span class="space one"></span><span class="space two"></span><span class="space three"></span><span class="label la">1</span><span class="label lb">2</span><span class="label lc">3</span></div></div>
+        <div class="step"><div class="badge">6</div><div><h3>Aggregate</h3><p>Write image-, sample-, mouse-, and group-level tables. Keep fields of view separate from biological replicate units.</p></div><div class="diagram alveoli"><span class="label la wide">image</span><span class="label lb wide">mouse</span><span class="label lc wide">group</span></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Outputs</h2>
+      <table>
+        <tr><th>Output</th><th>Role</th></tr>
+        <tr><td><code>chord_septal_image_metrics.csv</code></td><td>Per-image chord length, septal thickness, and segmentation settings.</td></tr>
+        <tr><td><code>alveoli_measurements.csv</code></td><td>Per-airspace morphology and thickness features.</td></tr>
+        <tr><td><code>mouse_summary.csv</code></td><td>Biological-replicate level summaries.</td></tr>
+        <tr><td><code>masks/</code>, <code>thickness_maps/</code>, <code>overlays/</code></td><td>Local review artifacts. Not included on this public page.</td></tr>
+      </table>
+    </section>
+
+    <section class="note">This public page describes the method only. It does not show unpublished result plots, raw fields, review overlays, or genotype-level conclusions.</section>
+  </div>
+</Layout>
