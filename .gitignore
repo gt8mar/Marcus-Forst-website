@@ -18,6 +18,7 @@ yarn-error.log*
 .DS_Store
 
 _old/
+drafts/
 
 # Local Netlify folder
 .netlify
